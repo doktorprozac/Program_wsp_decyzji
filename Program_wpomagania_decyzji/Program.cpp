@@ -6,7 +6,8 @@ int main ()
 {
 bool wyjscie = false;
 
-info *wsk = 0;
+info *wsk;
+wsk = new info;
 
 FirstMenu:
 	do
@@ -111,8 +112,12 @@ FirstMenu:
 		break;
 
 		}
+		delete wsk;
 	}
+	
 	while (true);
+
+	
 
 	return 0;
 }
