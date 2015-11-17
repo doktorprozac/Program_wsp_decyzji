@@ -1,0 +1,10 @@
+#include "naglowki.h"
+
+class ogol_informacje 
+{
+public:
+	void tutorial ()
+	{
+		cout << "Proba, bedzie tutorial z pliku !!!! " << endl;
+	}
+};
