@@ -14,7 +14,6 @@ wymagania *wsk1;
 wsk1 = new wymagania;
 
 
-FirstMenu:
 	do
 	{
 		cout << "*************************************************************" << endl;
