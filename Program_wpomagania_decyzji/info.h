@@ -1,11 +1,42 @@
 #include "naglowki.h"
 
+
 class info
 {
+	
 public:
+	
 
-	void tutorial ()
+	int tutorial ()
 	{
-		cout << " Bedzie tutorial z pliku " << endl;
+		static char autor [30] = "Kacper Igras"; 
+
+		cout << "*************************************************************" << endl;
+		cout << "*************************************************************" << endl;
+		cout << " SYSTEM WSPOMAGAJACY PROJEKTOWANIE SIECI KOMPUTEROWYCH " << endl;
+		cout << "*************************************************************" << endl;
+		cout << "*************************************************************" << endl;
+		cout << endl;
+		cout << " O programie: " << endl;
+		cout << endl;
+		cout << "Program ma za zadanie ulatwic potencjalnemu uzytkownikowi " << endl;
+		cout <<	" zaprojektowac siec, poprzez szereg generowanych pytan " << endl;
+		cout << endl;
+		cout << "Program podzielony jest na cztery moduly: " << endl;
+		cout << endl;
+		cout << "[1] Zebranie wymagan co do sieci " << endl;
+		cout << "[2] Projekt logiczny sieci " << endl;
+		cout << "[3] Projekt fizyczny sieci " << endl;
+		cout << "[4] Dodatki - przewidywalny koszt i harmonogram " << endl;
+		cout << endl;
+
+		cout << "Implementacja: " << autor << endl;
+		cout << endl;
+
+	
+		cout << " Wcisnij ENTER aby wyjsc " << endl;
+		cin.get();
+		return 0;
+
 	}
 };

@@ -1,5 +1,6 @@
-#include "naglowki.h";
+#include "naglowki.h"
 #include "info.h"
+#include "wymagania.h"
 
 
 int main ()
@@ -8,6 +9,10 @@ bool wyjscie = false;
 
 info *wsk;
 wsk = new info;
+
+wymagania *wsk1;
+wsk1 = new wymagania;
+
 
 FirstMenu:
 	do
@@ -29,72 +34,29 @@ FirstMenu:
 		cout << "Co chcesz zrobic [0 1 2] " << endl;
 		cin >> wybor;
 
-		
+		boolean x = false;
 
 		switch (wybor)
 		{
-
 		case 0:
+			do
+			{
+			system ("CLS");
 			cout << " Wybrano opcje nr 0 " << endl;
 			wsk->tutorial();
-			Sleep(5000);
-			system ("CLS");
+				if (cin.get() == '\n')
+				{
+					x;
+					system ("CLS");
+				}
+			}
+			while (!true);
 		break;
 		
 		case 1:
-			cout << " Wybrano opcje nr 1 " << endl;
-			cout << "Program przeprowadzi Panstwa przez szereg pytan, wspomagajace decyzje w tworzeniu sieci " << endl;
 			system ("CLS");
-
-			do
-			{
-				int wybor1;
-
-				cout << "*************************************************************" << endl;
-				cout << "*************************************************************" << endl;
-				cout << " Ponizej znajduja sie rodzaje budynkow w ktorych zaprojektuje sie siec: " << endl;
-				cout << "*************************************************************" << endl;
-				cout << "*************************************************************" << endl;
-				cout << endl;
-				cout << " Wybierz w jakim budynku zostanie zaprojektowana siec: " << endl;
-				cout << endl;
-				cout << " [0] Budynek jednopietrowy " << endl;
-				cout << " [1] Budynek wielopietrowy " << endl;
-				cout << " [2] Powrot do glownego menu " << endl;
-				cout << endl;
-				cout << "Co chcesz zrobic [0 1 2] " << endl;
-				cin >> wybor1;
-				
-				switch (wybor1)
-				{
-				case 0:
-					cout << " Wybrano opcje nr 0 " << endl;
-					Sleep(5000);
-					system ("CLS");
-					break;
-
-				case 1:
-					cout << " Wybrano opcje nr 1 " << endl;
-					Sleep(5000);
-					system ("CLS");
-					break;
-
-				case 2:
-					cout << "Powrot do glownego menu, dane zostana utracone " << endl;
-					Sleep(3000);
-					system ("CLS");
-					goto FirstMenu;
-				
-					break;
-
-				default:
-					cout << "Wybrano opcje obecnie nie dostepna w programie, ponownie wybierz [ 0 1 2 ] " << endl;
-					Sleep(5000);
-					system("CLS");
-				}
-			}
-			while (true);
-			
+			wsk1->budynek();
+		
 
 		break;
 
