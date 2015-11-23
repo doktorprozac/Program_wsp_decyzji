@@ -20,7 +20,8 @@ public:
 		cout << " O programie: " << endl;
 		cout << endl;
 		cout << "Program ma za zadanie ulatwic potencjalnemu uzytkownikowi " << endl;
-		cout <<	" zaprojektowac siec, poprzez szereg generowanych pytan " << endl;
+		cout <<	" zaprojektowac siec " << endl;
+		cout << "Na ka¿dym etapie projektowania sieci, u¿ytkownik odpowiada na postawione mu pytania " << endl;
 		cout << endl;
 		cout << "Program podzielony jest na cztery moduly: " << endl;
 		cout << endl;
