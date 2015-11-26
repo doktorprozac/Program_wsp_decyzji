@@ -128,7 +128,6 @@ int wymagania::ilosc_pomieszczen()
 		
 			cout << " Podana wartosc nie spelnia kryteriow " << endl;
 			cout << "-------------------------------------------------" << endl;
-		
 			cout << "Podaj jeszcze raz: " << endl;
 			cout << "-------------------------------------------------" << endl;
 			cin >> pomieszczenia;
@@ -412,6 +411,6 @@ int wymagania::urzadzenia()
 
 	
 
-	return liczba[10];
+	return liczba[12];
 }
 
