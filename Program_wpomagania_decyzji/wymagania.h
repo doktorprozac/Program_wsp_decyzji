@@ -4,7 +4,7 @@
 class wymagania
 {
 int wybor, pietra, pomieszczenia; 
-int liczba[10];
+int liczba[12];
 char odpowiedz;
 
 public:
@@ -29,7 +29,9 @@ int wymagania::budynek()
 	wsk1 = new wymagania;
 
 	wsk1->tytul();
-	
+
+	do
+	{
 	cout << "Rodzaje budynkow, w ktorych mozna zaprojektowac siec" << endl;
 	cout << "[1] Parterowiec " << endl;
 	cout << "[2] Budynek wielopietrowy " << endl;
@@ -38,19 +40,20 @@ int wymagania::budynek()
 	cout << "Co chcesz wybrac: " << endl;
 	cin >> wybor;
 
-	system ("CLS");
-	switch (wybor)
-	{
-	case 1:
+
+		switch (wybor)
+		{
+		case 1:
 		wsk1->tytul();
 		cout << " Wybrano [1] " << endl; 
 		
+
 		wsk1->ilosc_pomieszczen();
 		wsk1->urzadzenia();
 
 		break;
 
-	case 2:
+		case 2:
 		wsk1->tytul();
 		cout << " Wybrano [2] " << endl;
 		wsk1->ilosc_pieter();
@@ -59,7 +62,7 @@ int wymagania::budynek()
 
 		break;
 
-	case 3:
+		case 3:
 		wsk1->tytul();
 		cout << " Wybrano [3] " << endl;
 			do
@@ -72,12 +75,17 @@ int wymagania::budynek()
 				}
 			}
 			while (!true);
+			system ("CLS");
 		break;
 
-	default:
+		default:
 		cout << "nie ma takie opcji " << endl;
 		break;
+
+		}
 	}
+	while (true);
+
 
 	return wybor;
 
@@ -86,7 +94,6 @@ int wymagania::budynek()
 
 int wymagania::ilosc_pieter()
 {
-	pietra = 0;
 	cout << "Podaj ilosc pieter [max 10]: " << endl;
 	cin >> pietra;
 
@@ -104,28 +111,33 @@ int wymagania::ilosc_pieter()
 		{
 		cout << "ilosc podanych pieter: " << pietra << endl;
 		}
+		system ("CLS");
 	
-		
 		return pietra;
 	
 }
 
 int wymagania::ilosc_pomieszczen()
 {
-	cout << "Podaj laczna liczbe pomieszczen [max 50] " << endl;
+	
+	cout << "Podaj laczna liczbe pomieszczen [max 10] " << endl;
 	cin >> pomieszczenia;
 
-	while (pomieszczenia < 0 || pomieszczenia > 50)
+	while (pomieszczenia < 0 || pomieszczenia > 10 )
 	{
-	cout << " Podana wartosc nie spelnia kryteriow " << endl;
-	cout << "-------------------------------------------------" << endl;
-	cout << "Podaj jeszcze raz: " << endl;
-	cout << "-------------------------------------------------" << endl;
-	cin >> pomieszczenia;
+		
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+		
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> pomieszczenia;
+		
 	}
 			
 	cout << "podano: " << pomieszczenia << " pomieszczen " << endl;
-	
+	liczba[9] = pomieszczenia;
+	system ("CLS");
 	return pomieszczenia;
 }
 
@@ -140,12 +152,26 @@ int wymagania::urzadzenia()
 	cin >> odpowiedz;
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
-		cout << "Podaj liczbe komputerow: " << endl;
+		cout << "Podaj liczbe komputerow [max 5]: " << endl;
 		cin >> liczba[0];
+
+		while (liczba[0] < 0 || liczba[0] > 5 )
+		{
+		
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> liczba[0];
+		
+		}
+	
+		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
 		liczba[0] = NULL;
+		system ("CLS");
 	}
 
 	cout << "-------------------------------------------------------------------" << endl;
@@ -153,12 +179,25 @@ int wymagania::urzadzenia()
 	cin >> odpowiedz;
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
-		cout << "Podaj liczbe laptopow: " << endl;
+		cout << "Podaj liczbe laptopow [max 5]: " << endl;
 		cin >> liczba[1];
+
+		while (liczba[1] < 0 || liczba[1] > 5 )
+		{
+		
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> liczba[1];
+		
+		}
+		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
 		liczba[1] = NULL;
+		system ("CLS");
 	}
 
 	cout << "-------------------------------------------------------------------" << endl;
@@ -166,21 +205,50 @@ int wymagania::urzadzenia()
 	cin >> odpowiedz;
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
-		cout << "Podaj liczbe telewizorow: " << endl;
+		cout << "Podaj liczbe telewizorow [max 5]: " << endl;
 		cin >> liczba[2];
+
+		while (liczba[2] < 0 || liczba[2] > 5 )
+		{
+		
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> liczba[2];
+		
+		}
+		system ("CLS");
+
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
 		liczba[2] = NULL;
+		system ("CLS");
 	}
 
 	cout << "-------------------------------------------------------------------" << endl;
 	cout << " Czy w sklad sieci beda wchodzic 'drukarki sieciowe ' ? [t/n]" << endl;
 	cin >> odpowiedz;
+	/*if (!odpowiedz == 't' || !odpowiedz == 'T')
+	{
+		cout << "niet " << endl;
+	}*/
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
-		cout << "Podaj liczbe drukarek sieciowych: " << endl;
+		cout << "Podaj liczbe drukarek sieciowych [max 5]: " << endl;
 		cin >> liczba[3];
+		while (liczba[3] < 0 || liczba[3] > 5 )
+		{
+		
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> liczba[3];
+		
+		}
+
 		if (liczba[3] > 3)
 		{
 			cout << "Potrzebny jest serwer [max 3 lacznie], oto trzy typy: " << endl;
@@ -231,6 +299,7 @@ int wymagania::urzadzenia()
 			liczba[5] = NULL;
 			liczba[6] = NULL;
 		}
+		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
@@ -238,6 +307,7 @@ int wymagania::urzadzenia()
 		liczba[4] = NULL;
 		liczba[5] = NULL;
 		liczba[6] = NULL;
+		system ("CLS");
 	}
 	
 	cout << "-------------------------------------------------------------------" << endl;
@@ -245,25 +315,41 @@ int wymagania::urzadzenia()
 	cin >> odpowiedz;
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
-		cout << "Podaj liczbe faxów: " << endl;
+		cout << "Podaj liczbe faxów [max 5]: " << endl;
 		cin >> liczba[7];
+
+		while (liczba[7] < 0 || liczba[7] > 5 )
+		{
+		
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> liczba[7];
+		
+		}
+		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
 		liczba[7] = NULL;
+		system ("CLS");
 	}
 
 	cout << "-------------------------------------------------------------------" << endl;
 	cout << " Czy w sklad sieci beda wchodzic 'telefony ' ? [t/n]" << endl;
 	cin >> odpowiedz;
+
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj szacunkowa liczbe wszystkich telefonow: " << endl;
 		cin >> liczba[8];
+		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
 		liczba[8] = NULL;
+		system ("CLS");
 	}
 	
 
@@ -272,9 +358,17 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		fstream plik;
-		plik.open("\\dane.txt",ios::out); // | ios:app -> dopisywanie do pliku
+		// dane zapisywane na dysku D:
+		plik.open("\\dane.txt", ios::out); // | ios:app -> dopisywanie do pliku
+		
+		if (plik.good() == false)
+		{
+		cout << "nie udalo sie odczytac pliku z pytaniami " << endl;
+		}
 
-		plik << "PODSUMOWANIE: " << endl;
+		plik<< "-------------------------------------------------------" << endl;
+		plik<< "PODSUMOWANIE: " << endl;
+		plik<< "-------------------------------------------------------" << endl;
 		plik<< "Komputery stacjonarne: " << liczba[0] << endl;
 		plik<< "Laptopy: " << liczba[1] << endl;
 		plik<< "Telewizory: " << liczba[2] << endl;
@@ -284,13 +378,40 @@ int wymagania::urzadzenia()
 		plik<< "Serwery specjalne: " << liczba[6] << endl;
 		plik<< "Faxy: " << liczba[7] << endl;
 		plik<< "Telefony: " << liczba[8] << endl;
-
+		plik<< "Ilosc pomieszczen: " << liczba[9] << endl;
+		plik<< "-------------------------------------------------------" << endl;
+		plik<< "-------------------------------------------------------" << endl;
+		
 		plik.close();
-		cout << "Zapisano do pliku dane.txt" << endl;
+		cout << "Zapisano informacje do pliku 'dane.txt' na dysku D:" << endl;
 	}
 
+	system("CLS");
+	cout << "Otworzyc zawartosc pliku ? [t/n] " << endl;
+	cin >> odpowiedz;
+	system ("CLS");
+	if (odpowiedz == 't' || odpowiedz == 'T')
+	{
+		string linia;
+		fstream plik;
+		plik.open("\\dane.txt", ios::in); // | ios:app -> dopisywanie do pliku
+		if (plik.is_open())
+		{
+			while ( getline (plik,linia) )
+			{
+			 cout << linia << '\n';
+			}
+
+			plik.close();
+		}
+		else
+		{
+			cout << "Nie mozna otworzyc pliku " << endl;
+		}
+	}
 
 	
 
 	return liczba[10];
 }
+

@@ -67,10 +67,11 @@ wsk1 = new wymagania;
 
 		default:
 			cout << "Wybrano opcje obecnie nie dostepna w programie, ponownie wybierz [ 0 1 2 ] " << endl;
-			Sleep(5000);
+			Sleep(3000);
 			system("CLS");
-			
+
 		break;
+		
 
 		}
 		delete wsk;
