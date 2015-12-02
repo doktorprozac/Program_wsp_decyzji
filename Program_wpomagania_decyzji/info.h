@@ -2,8 +2,7 @@
 
 
 class info
-{
-	
+{	
 public:
 	
 

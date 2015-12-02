@@ -1,37 +1,46 @@
+#include "Wymagania1.h"
 #include "naglowki.h"
+#include "Projekt_logiczny.h"
 
 
-class wymagania
+Wymagania1::Wymagania1(void)
 {
-int wybor, pietra, pomieszczenia; 
-int liczba[12];
-char odpowiedz;
+	
+}
 
-public:
-	void tytul();
-	int budynek();
-	int ilosc_pieter();
-	int ilosc_pomieszczen();
-	int urzadzenia();
 
-};
+Wymagania1::~Wymagania1(void)
+{
+}
 
-void wymagania::tytul()
+
+int* Wymagania1::get_liczba()
+{
+	return liczba;
+}
+
+//p_logiczny *wsk2;
+
+void Wymagania1::tytul()
 {
 	cout << "*************************************************************" << endl;
 	cout << " FAZA WSTEPNYCH WYMAGAN " << endl;
 	cout << "*************************************************************" << endl;
 }
 
-int wymagania::budynek()
+int Wymagania1::budynek()
 {
-	wymagania *wsk1;
-	wsk1 = new wymagania;
-
-	wsk1->tytul();
+	
+	Wymagania1 *wsk2 = new Wymagania1;
+	wsk2->tytul();
 
 	do
 	{
+	cout << "*************************************************************" << endl;
+	cout << "*************************************************************" << endl;
+	cout << "ETAP PIERWSZY, WSTEPNE WYMAGANIA: " << endl;
+	cout << "*************************************************************" << endl;
+	cout << "*************************************************************" << endl;
 	cout << "Rodzaje budynkow, w ktorych mozna zaprojektowac siec" << endl;
 	cout << "[1] Parterowiec " << endl;
 	cout << "[2] Budynek wielopietrowy " << endl;
@@ -44,26 +53,24 @@ int wymagania::budynek()
 		switch (wybor)
 		{
 		case 1:
-		wsk1->tytul();
+		wsk2->tytul();
 		cout << " Wybrano [1] " << endl; 
-		
-
-		wsk1->ilosc_pomieszczen();
-		wsk1->urzadzenia();
+		wsk2->ilosc_pomieszczen();
+		wsk2->urzadzenia(9);
 
 		break;
 
 		case 2:
-		wsk1->tytul();
+		wsk2->tytul();
 		cout << " Wybrano [2] " << endl;
-		wsk1->ilosc_pieter();
-		wsk1->ilosc_pomieszczen();
-		wsk1->urzadzenia();
+		wsk2->ilosc_pieter();
+		wsk2->ilosc_pomieszczen();
+		wsk2->urzadzenia(9);
 
 		break;
 
 		case 3:
-		wsk1->tytul();
+		wsk2->tytul();
 		cout << " Wybrano [3] " << endl;
 			do
 			{
@@ -88,11 +95,11 @@ int wymagania::budynek()
 
 
 	return wybor;
-
+	delete wsk2;
 }
 
 
-int wymagania::ilosc_pieter()
+int Wymagania1::ilosc_pieter()
 {
 	cout << "Podaj ilosc pieter [max 10]: " << endl;
 	cin >> pietra;
@@ -114,10 +121,11 @@ int wymagania::ilosc_pieter()
 		system ("CLS");
 	
 		return pietra;
+		
 	
 }
 
-int wymagania::ilosc_pomieszczen()
+int Wymagania1::ilosc_pomieszczen()
 {
 	
 	cout << "Podaj laczna liczbe pomieszczen [max 10] " << endl;
@@ -137,11 +145,13 @@ int wymagania::ilosc_pomieszczen()
 	cout << "podano: " << pomieszczenia << " pomieszczen " << endl;
 	liczba[9] = pomieszczenia;
 	system ("CLS");
-	return pomieszczenia;
+
+	return liczba[9];
 }
 
-int wymagania::urzadzenia()
+int* Wymagania1::urzadzenia (int rozmiar)
 {
+	
 	
 	cout << "*************************************************************" << endl;
 	cout << " URZADZENIA WCHODZACE W SKLAD PROJEKTOWANEJ SIECI " << endl;
@@ -152,16 +162,16 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj liczbe komputerow [max 5]: " << endl;
-		cin >> liczba[0];
+		cin >> this->liczba[0];
 
-		while (liczba[0] < 0 || liczba[0] > 5 )
+		while (this->liczba[0] < 0 || this->liczba[0] > 5 )
 		{
 		
 			cout << " Podana wartosc nie spelnia kryteriow " << endl;
 			cout << "-------------------------------------------------" << endl;
 			cout << "Podaj jeszcze raz: " << endl;
 			cout << "-------------------------------------------------" << endl;
-			cin >> liczba[0];
+			cin >> this->liczba[0];
 		
 		}
 	
@@ -169,7 +179,7 @@ int wymagania::urzadzenia()
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
-		liczba[0] = NULL;
+		this->liczba[0] = NULL;
 		system ("CLS");
 	}
 
@@ -179,23 +189,23 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj liczbe laptopow [max 5]: " << endl;
-		cin >> liczba[1];
+		cin >> this->liczba[1];
 
-		while (liczba[1] < 0 || liczba[1] > 5 )
+		while (this->liczba[1] < 0 || this->liczba[1] > 5 )
 		{
 		
 			cout << " Podana wartosc nie spelnia kryteriow " << endl;
 			cout << "-------------------------------------------------" << endl;
 			cout << "Podaj jeszcze raz: " << endl;
 			cout << "-------------------------------------------------" << endl;
-			cin >> liczba[1];
+			cin >> this->liczba[1];
 		
 		}
 		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
-		liczba[1] = NULL;
+		this->liczba[1] = NULL;
 		system ("CLS");
 	}
 
@@ -205,16 +215,16 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj liczbe telewizorow [max 5]: " << endl;
-		cin >> liczba[2];
+		cin >> this->liczba[2];
 
-		while (liczba[2] < 0 || liczba[2] > 5 )
+		while (this->liczba[2] < 0 || this->liczba[2] > 5 )
 		{
 		
 			cout << " Podana wartosc nie spelnia kryteriow " << endl;
 			cout << "-------------------------------------------------" << endl;
 			cout << "Podaj jeszcze raz: " << endl;
 			cout << "-------------------------------------------------" << endl;
-			cin >> liczba[2];
+			cin >> this->liczba[2];
 		
 		}
 		system ("CLS");
@@ -222,7 +232,7 @@ int wymagania::urzadzenia()
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
-		liczba[2] = NULL;
+		this->liczba[2] = NULL;
 		system ("CLS");
 	}
 
@@ -236,19 +246,19 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj liczbe drukarek sieciowych [max 5]: " << endl;
-		cin >> liczba[3];
-		while (liczba[3] < 0 || liczba[3] > 5 )
+		cin >> this->liczba[3];
+		while (this->liczba[3] < 0 || this->liczba[3] > 5 )
 		{
 		
 			cout << " Podana wartosc nie spelnia kryteriow " << endl;
 			cout << "-------------------------------------------------" << endl;
 			cout << "Podaj jeszcze raz: " << endl;
 			cout << "-------------------------------------------------" << endl;
-			cin >> liczba[3];
+			cin >> this->liczba[3];
 		
 		}
 
-		if (liczba[3] > 3)
+		if (this->liczba[3] > 3)
 		{
 			cout << "Potrzebny jest serwer [max 3 lacznie], oto trzy typy: " << endl;
 			cout << "[1] Dedykowany " << endl;
@@ -260,11 +270,11 @@ int wymagania::urzadzenia()
 			if (odpowiedz == 't' || odpowiedz == 'T')
 			{
 				cout << "Podaj ilosc: " << endl;
-				cin >> liczba[4];
+				cin >> this->liczba[4];
 			}
 			else if (odpowiedz == 'n' || odpowiedz == 'N')
 			{
-				liczba[4] = NULL;
+				this->liczba[4] = NULL;
 			}
 			
 			cout << "Czy wykorzystasz serwery niededykowane ? [t/n] " << endl;
@@ -272,11 +282,11 @@ int wymagania::urzadzenia()
 			if (odpowiedz == 't' || odpowiedz == 'T')
 			{
 				cout << "Podaj ilosc: " << endl;
-				cin >> liczba[5];
+				cin >> this->liczba[5];
 			}
 			else if (odpowiedz == 'n' || odpowiedz == 'N')
 			{
-				liczba[5] = NULL;
+				this->liczba[5] = NULL;
 			}
 
 			cout << "Czy wykorzystasz serwery specjalne ? [t/n] " << endl;
@@ -284,28 +294,28 @@ int wymagania::urzadzenia()
 			if (odpowiedz == 't' || odpowiedz == 'T')
 			{
 				cout << "Podaj ilosc: " << endl;
-				cin >> liczba[6];
+				cin >> this->liczba[6];
 			}
 			else if (odpowiedz == 'n' || odpowiedz == 'N')
 			{
-				liczba[6] = NULL;
+				this->liczba[6] = NULL;
 			}
 
 		}
 		else
 		{
-			liczba[4] = NULL;
-			liczba[5] = NULL;
-			liczba[6] = NULL;
+			this->liczba[4] = NULL;
+			this->liczba[5] = NULL;
+			this->liczba[6] = NULL;
 		}
 		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
-		liczba[3] = NULL;
-		liczba[4] = NULL;
-		liczba[5] = NULL;
-		liczba[6] = NULL;
+		this->liczba[3] = NULL;
+		this->liczba[4] = NULL;
+		this->liczba[5] = NULL;
+		this->liczba[6] = NULL;
 		system ("CLS");
 	}
 	
@@ -315,23 +325,23 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj liczbe faxów [max 5]: " << endl;
-		cin >> liczba[7];
+		cin >> this->liczba[7];
 
-		while (liczba[7] < 0 || liczba[7] > 5 )
+		while (this->liczba[7] < 0 || this->liczba[7] > 5 )
 		{
 		
 			cout << " Podana wartosc nie spelnia kryteriow " << endl;
 			cout << "-------------------------------------------------" << endl;
 			cout << "Podaj jeszcze raz: " << endl;
 			cout << "-------------------------------------------------" << endl;
-			cin >> liczba[7];
+			cin >> this->liczba[7];
 		
 		}
 		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
-		liczba[7] = NULL;
+		this->liczba[7] = NULL;
 		system ("CLS");
 	}
 
@@ -342,12 +352,12 @@ int wymagania::urzadzenia()
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
 		cout << "Podaj szacunkowa liczbe wszystkich telefonow: " << endl;
-		cin >> liczba[8];
+		cin >> this->liczba[8];
 		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
 	{
-		liczba[8] = NULL;
+		this->liczba[8] = NULL;
 		system ("CLS");
 	}
 	
@@ -381,6 +391,8 @@ int wymagania::urzadzenia()
 		plik<< "-------------------------------------------------------" << endl;
 		plik<< "-------------------------------------------------------" << endl;
 		
+		
+
 		plik.close();
 		cout << "Zapisano informacje do pliku 'dane.txt' na dysku D:" << endl;
 	}
@@ -401,6 +413,8 @@ int wymagania::urzadzenia()
 			 cout << linia << '\n';
 			}
 
+
+
 			plik.close();
 		}
 		else
@@ -408,9 +422,58 @@ int wymagania::urzadzenia()
 			cout << "Nie mozna otworzyc pliku " << endl;
 		}
 	}
-
+	
+	
+	Sleep(5000);
+	system ("CLS");
+	//suma_el();
+	Projekt_logiczny *wsk4 = new Projekt_logiczny;
 	
 
-	return liczba[12];
+	wsk4->segmentacja_sieci(liczba,9);
+
+	return liczba;
+
+}
+
+int * Wymagania1::odczyt_z_pliku()
+{
+	
+	system ("CLS");
+	
+		string linia;
+		fstream plik;
+		plik.open("\\dane.txt", ios::in); // | ios:app -> dopisywanie do pliku
+		if (plik.is_open())
+		{
+			
+			int i = 0;
+
+			while ( getline (plik,linia) )
+			{
+
+				/*cout << "aa " << endl;
+				cout << linia.size() << endl;*/
+				if (i >= 3 && i <= 12)
+				{
+
+				*(this->liczba+(i-3))  = linia.at(linia.length()-1)-'0';
+				//cout << this->liczba+(i-3)  << endl;
+				}
+				i++;
+				
+			}
+			
+
+
+			plik.close();
+		}
+		else
+		{
+			cout << "Nie mozna otworzyc pliku " << endl;
+		}
+	
+		return this->liczba;
+	
 }
 

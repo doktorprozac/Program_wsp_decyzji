@@ -1,7 +1,7 @@
 #include "naglowki.h"
+//#include "wymagania.h"
+#include "Wymagania1.h"
 #include "info.h"
-#include "wymagania.h"
-
 
 int main ()
 {
@@ -10,8 +10,7 @@ bool wyjscie = false;
 info *wsk;
 wsk = new info;
 
-wymagania *wsk1;
-wsk1 = new wymagania;
+Wymagania1 *wsk1 = new Wymagania1;
 
 
 	do
@@ -79,7 +78,7 @@ wsk1 = new wymagania;
 	
 	while (true);
 
-	
+	delete wsk, wsk1;
 
 	return 0;
 }
