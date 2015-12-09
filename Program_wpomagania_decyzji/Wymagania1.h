@@ -9,7 +9,7 @@ public:
 	void tytul();
 	int budynek();
 	int ilosc_pieter();
-	int ilosc_pomieszczen();
+	
 	int* urzadzenia(int rozmiar);
 	int *get_liczba();
 	int suma_el();
@@ -20,7 +20,7 @@ friend class Projekt_logiczny;
 //friend void segmentacja_sieci(wymagania &);
 private:
 
-int wybor, pietra, pomieszczenia; 
+int wybor, pietra; 
 char odpowiedz;
 int suma;
 

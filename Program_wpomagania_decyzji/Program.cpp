@@ -1,5 +1,4 @@
 #include "naglowki.h"
-//#include "wymagania.h"
 #include "Wymagania1.h"
 #include "info.h"
 

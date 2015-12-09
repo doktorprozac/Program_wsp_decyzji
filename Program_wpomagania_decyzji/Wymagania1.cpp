@@ -55,7 +55,7 @@ int Wymagania1::budynek()
 		case 1:
 		wsk2->tytul();
 		cout << " Wybrano [1] " << endl; 
-		wsk2->ilosc_pomieszczen();
+		//wsk2->ilosc_pomieszczen();
 		wsk2->urzadzenia(9);
 
 		break;
@@ -64,7 +64,7 @@ int Wymagania1::budynek()
 		wsk2->tytul();
 		cout << " Wybrano [2] " << endl;
 		wsk2->ilosc_pieter();
-		wsk2->ilosc_pomieszczen();
+		//wsk2->ilosc_pomieszczen();
 		wsk2->urzadzenia(9);
 
 		break;
@@ -125,29 +125,6 @@ int Wymagania1::ilosc_pieter()
 	
 }
 
-int Wymagania1::ilosc_pomieszczen()
-{
-	
-	cout << "Podaj laczna liczbe pomieszczen [max 10] " << endl;
-	cin >> pomieszczenia;
-
-	while (pomieszczenia < 0 || pomieszczenia > 10 )
-	{
-		
-			cout << " Podana wartosc nie spelnia kryteriow " << endl;
-			cout << "-------------------------------------------------" << endl;
-			cout << "Podaj jeszcze raz: " << endl;
-			cout << "-------------------------------------------------" << endl;
-			cin >> pomieszczenia;
-		
-	}
-			
-	cout << "podano: " << pomieszczenia << " pomieszczen " << endl;
-	liczba[9] = pomieszczenia;
-	system ("CLS");
-
-	return liczba[9];
-}
 
 int* Wymagania1::urzadzenia (int rozmiar)
 {
@@ -351,8 +328,16 @@ int* Wymagania1::urzadzenia (int rozmiar)
 
 	if (odpowiedz == 't' || odpowiedz == 'T')
 	{
-		cout << "Podaj szacunkowa liczbe wszystkich telefonow: " << endl;
+		cout << "Podaj szacunkowa liczbe wszystkich telefonow [max 5]: " << endl;
 		cin >> this->liczba[8];
+		while (this->liczba[8] < 0 || this->liczba[8] > 5)
+		{
+			cout << " Podana wartosc nie spelnia kryteriow " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cout << "Podaj jeszcze raz: " << endl;
+			cout << "-------------------------------------------------" << endl;
+			cin >> this->liczba[8];
+		}
 		system ("CLS");
 	}
 	else if (odpowiedz == 'n' || odpowiedz == 'N')
@@ -375,9 +360,11 @@ int* Wymagania1::urzadzenia (int rozmiar)
 		cout << "nie udalo sie odczytac pliku z pytaniami " << endl;
 		}
 
-		plik<< "-------------------------------------------------------" << endl;
-		plik<< "PODSUMOWANIE: " << endl;
-		plik<< "-------------------------------------------------------" << endl;
+		plik << "*************************************************************" << endl;
+		plik << "*************************************************************" << endl;
+		plik << "ETAP PIERWSZY, WSTEPNE WYMAGANIA: " << endl;
+		plik << "*************************************************************" << endl;
+		plik << "*************************************************************" << endl;
 		plik<< "Komputery stacjonarne: " << liczba[0] << endl;
 		plik<< "Laptopy: " << liczba[1] << endl;
 		plik<< "Telewizory: " << liczba[2] << endl;
@@ -387,7 +374,6 @@ int* Wymagania1::urzadzenia (int rozmiar)
 		plik<< "Serwery specjalne: " << liczba[6] << endl;
 		plik<< "Faxy: " << liczba[7] << endl;
 		plik<< "Telefony: " << liczba[8] << endl;
-		plik<< "Ilosc pomieszczen: " << liczba[9] << endl;
 		plik<< "-------------------------------------------------------" << endl;
 		plik<< "-------------------------------------------------------" << endl;
 		
@@ -426,7 +412,6 @@ int* Wymagania1::urzadzenia (int rozmiar)
 	
 	Sleep(5000);
 	system ("CLS");
-	//suma_el();
 	Projekt_logiczny *wsk4 = new Projekt_logiczny;
 	
 
@@ -454,10 +439,10 @@ int * Wymagania1::odczyt_z_pliku()
 
 				/*cout << "aa " << endl;
 				cout << linia.size() << endl;*/
-				if (i >= 3 && i <= 12)
+				if (i >= 5 && i <= 13)
 				{
 
-				*(this->liczba+(i-3))  = linia.at(linia.length()-1)-'0';
+				*(this->liczba+(i-5))  = linia.at(linia.length()-1)-'0';
 				//cout << this->liczba+(i-3)  << endl;
 				}
 				i++;
