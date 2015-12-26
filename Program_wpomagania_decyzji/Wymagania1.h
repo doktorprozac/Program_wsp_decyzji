@@ -21,7 +21,7 @@ friend class Projekt_logiczny;
 private:
 
 int wybor, pietra; 
-char odpowiedz;
+char odpowiedzz;
 int suma;
 
 protected:
