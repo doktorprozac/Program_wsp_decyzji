@@ -1,6 +1,11 @@
 #pragma once
 class Wymagania1
 {
+
+int wybor, pietra; 
+char odpowiedzz;
+int suma;
+
 public:
 	Wymagania1(void);
 
@@ -18,11 +23,6 @@ public:
 
 friend class Projekt_logiczny;
 //friend void segmentacja_sieci(wymagania &);
-private:
-
-int wybor, pietra; 
-char odpowiedzz;
-int suma;
 
 protected:
 	int liczba[9];

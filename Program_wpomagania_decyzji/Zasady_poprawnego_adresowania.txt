@@ -1,0 +1,11 @@
+Zasady poprawnego adresowania IP:
+
+1. numer sieci musi jednoznacznie identyfikowac siec
+2. numer hosta w obrêbie danej sieci musi byc unikalny
+3. w numerach sieci nie wolno stosowac numerow zaczynajacych sie od 127, adresy
+takie sluza do adresowania petli zwrotnej
+4. nie wolno stosowac adresow, gdzie wszystkie bity maja wartosc 1
+5. nie wolno stosowac adresow, gdzie wszystkie bity maja wartosc 0
+6. nie mozna stosowac numerow hostow skladajacych sie z samych 0, 
+przyklad: 192.254.0.0 -> adres przeznaczony jest do oznaczenia samej sieci
+7. nie mozna stosowac numerow hostow skladajacych sie z samych 1 

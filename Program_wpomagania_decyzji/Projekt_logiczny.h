@@ -6,10 +6,8 @@
 class Wymagania1;
 class Projekt_logiczny
 {
-	int pomieszczenia, il_segmentow, suma, klastry, wynik;
-	int i;
-	int odpowiedz[5];
-	
+	int i, odpowiedz[5] ,pomieszczenia, il_segmentow, suma, klastry, wynik, odpowiedz_wybor_klasy;
+	char poprawna_adresacja, odpowiedz_klasa_adresacji;
 
 public:
 	Projekt_logiczny(void);
@@ -21,6 +19,9 @@ public:
 	void sumuj (int tab[]);
 	friend class Wymagania1;
 	int *moja_tablica;
+	void klasa_adresow_A ();
+
+	
 	
 	
 };

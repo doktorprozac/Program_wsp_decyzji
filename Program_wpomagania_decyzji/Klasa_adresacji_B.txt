@@ -1,0 +1,10 @@
+Klasa adresacji B:
+
+1. Zakres adresacji: 128.0.0.1 - 191.255.255.254
+2. Adres rozgloszeniowy: 191.255.255.255
+3. Maska: 255.0.0.0 
+4. Mozna zaadresowac 16 382 sieci
+5. Stworzona do obslugi sredniej wielkosci sieci
+6. Adresy prywatne:
+a. 172.16.0.1 - 172.31.255.254
+b. 169.254.0.1 - 169.254.255.254

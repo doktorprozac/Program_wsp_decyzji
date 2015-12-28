@@ -4,7 +4,7 @@
 class info
 {	
 public:
-	
+
 
 	int tutorial ()
 	{
@@ -33,10 +33,29 @@ public:
 		cout << "Implementacja: " << autor << endl;
 		cout << endl;
 
-	
+
 		cout << " Wcisnij ENTER aby wyjsc " << endl;
 		cin.get();
 		return 0;
 
+	}
+
+	int odczytaj_plik_z_danymi(string name)
+	{
+		string linia;
+		ifstream plik(name);
+		if (plik.is_open())
+		{
+			while (getline(plik,linia))
+			{
+				cout << linia << endl;
+			}
+			plik.close();
+		}
+		else
+		{
+			cout << "Plik nie zostal otworzony :( " << endl; 
+		}
+		return 0;
 	}
 };

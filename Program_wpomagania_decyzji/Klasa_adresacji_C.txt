@@ -1,0 +1,10 @@
+Klasa adresacji C:
+
+1. Zakres adresacji: 192.0.0.1 - 223.255.255.254
+2. Adres rozgloszeniowy: 223.255.255.255
+3. Maska: 255.0.0.0 
+4. Mozna zaadresowac 2 097 152 sieci
+5. Stworzona do obslugi malych sieci
+6. Adresy prywatne:
+a. 192.168.0.1 - 192.168.255.254
+

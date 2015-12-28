@@ -68,11 +68,9 @@ Wymagania1 *wsk1 = new Wymagania1;
 			Sleep(3000);
 			system("CLS");
 
-		break;
+		continue;
 		
-
 		}
-		delete wsk;
 	}
 	
 	while (true);
