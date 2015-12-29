@@ -35,7 +35,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 		cout << endl;
 		cout << "[1] Wskazanie lacznej liczby pomieszczen oraz klastrow " << endl;
 		cout << "[2] Wskazanie technologii (standardow) dla kazdego segmentu " << endl;
-		cout << "[3] Adresacja sieci dla poszczegolnych segmentow sieci " << endl;
+		cout << "[3] Adresacja sieci dla segmentow sieci " << endl;
 		cout << "[4] Lista protokolow niezbednych do realizacji sieci " << endl;
 		cout << "[5] Plan zarz¹dzania siecia " << endl;
 		cout << "[6] Powrot do poprzedniego etapu " << endl;
@@ -45,7 +45,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 
 		boolean x = false;
 
-	
+
 		switch (odpowiedz[0])
 		{
 
@@ -73,9 +73,6 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			cout << "suma wszystkich elementow sieci: " << suma << endl;
 
 			segmenty();
-
-
-
 			Sleep(5000);
 			break;
 		case 2:
@@ -131,19 +128,6 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						cout << " Wybrano [3] " << endl;
 						system ("CLS");
 						return segmentacja_sieci(liczba,9);
-						/*do
-						{
-							boolean x = false;
-							if (cin.get() == '\n')
-							{
-								x;
-								system ("CLS");
-							}
-							system ("CLS");
-						}
-						while (false);
-						system ("CLS");*/
-
 						continue;
 
 					default:
@@ -239,100 +223,144 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			for (;;)
 			{
 
-			cout << "Adresacja sieci dla poszczegolnych segmentow sieci " << endl;
-			cout << "" << endl;
-			cout << "Czy chcesz zaznajomic sie z zasadami " << endl;
-			cout << "poprawnej adresacji sieci ? [t/n] " << endl;
-			cin >> poprawna_adresacja;
-			if (poprawna_adresacja == 't' || poprawna_adresacja == 'T')
-			{
-				system ("CLS");
-				wsk6->odczytaj_plik_z_danymi("Zasady_poprawnego_adresowania.txt");
-			}
-	
-			//delete wsk6;
 
-			cout << endl;
-			cout << "Wybierz w jakiej klasie beda segmenty sieci: " << endl;
-			cout << "[1] Klasa A " << endl;
-			cout << "[2] Klasa B " << endl;
-			cout << "[3] Klasa C " << endl;
-			cout << endl;
-			cout << "Podaj liczbe: " << endl;
-			cin >> odpowiedz_wybor_klasy;
-
-			switch (odpowiedz_wybor_klasy)
-			{
-			case 1:
-				system ("CLS");
-				cout << endl;
-				wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_A.txt");
-				cout << endl;
-				cout << "Czy chcesz wykorzystac taka klase adresacji ? [t/n] " << endl;
-				cin >> odpowiedz_klasa_adresacji;
-				if (odpowiedz_klasa_adresacji == 't' || odpowiedz_klasa_adresacji == 'T')
-				{
-					cout << "TAK " << endl;
-					return segmentacja_sieci(liczba,9);
-					break;
-				}
-				else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
+				cout << "Adresacja sieci dla poszczegolnych segmentow sieci " << endl;
+				cout << "" << endl;
+				cout << "Czy chcesz zaznajomic sie z zasadami " << endl;
+				cout << "poprawnej adresacji sieci ? [t/n] " << endl;
+				cin >> poprawna_adresacja;
+				if (poprawna_adresacja == 't' || poprawna_adresacja == 'T')
 				{
 					system ("CLS");
-					continue;
+					wsk6->odczytaj_plik_z_danymi("Zasady_poprawnego_adresowania.txt");
 				}
-				break;
-				
-			case 2:
-				system ("CLS");
-				cout << endl;
-				wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_B.txt");
-				cout << endl;
-				cout << "Czy chcesz wykorzystac taka klase adresacji ? [t/n] " << endl;
-				cin >> odpowiedz_klasa_adresacji;
 
-				if (odpowiedz_klasa_adresacji == 't' || odpowiedz_klasa_adresacji == 'T')
+				//delete wsk6;
+
+				cout << endl;
+				cout << "Wybierz w jakiej klasie beda segmenty sieci: " << endl;
+				cout << "[1] Klasa A " << endl;
+				cout << "[2] Klasa B " << endl;
+				cout << "[3] Klasa C " << endl;
+				cout << endl;
+				cout << "Podaj liczbe: " << endl;
+				cin >> odpowiedz_wybor_klasy;
+
+				switch (odpowiedz_wybor_klasy)
 				{
-					cout << "TAK " << endl;
-					return segmentacja_sieci(liczba,9);
+				case 1:
+					system ("CLS");
+					cout << endl;
+					wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_A.txt");
+					cout << endl;
+					cout << "Czy chcesz wykorzystac taka klase adresacji ? [t/n] " << endl;
+					cin >> odpowiedz_klasa_adresacji;
+					if (odpowiedz_klasa_adresacji == 't' || odpowiedz_klasa_adresacji == 'T')
+					{
+						klasa_adresacji("A");
+						wsk6->odczytaj_plik_z_danymi("Przyklad_podzialu_sieci_na_podsieci_klasa_A.txt");
+						
+						// kopiowanie wynikow z in do out
+						ifstream in("Przyklad_podzialu_sieci_na_podsieci_klasa_A.txt");
+						ofstream out("\\dane.txt", ios::out | ios::app);
+
+						string str;
+						while (getline(in,str))
+						{
+							out << str << endl;
+						}
+						in.close();
+						out.close();
+
+						return segmentacja_sieci(liczba,9);
+						break;
+					}
+					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
+					{
+						system ("CLS");
+						continue;
+					}
+					break;
+
+				case 2:
+					system ("CLS");
+					cout << endl;
+					wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_B.txt");
+					cout << endl;
+					cout << "Czy chcesz wykorzystac taka klase adresacji ? [t/n] " << endl;
+					cin >> odpowiedz_klasa_adresacji;
+
+					if (odpowiedz_klasa_adresacji == 't' || odpowiedz_klasa_adresacji == 'T')
+					{
+						klasa_adresacji("B");
+						wsk6->odczytaj_plik_z_danymi("Przyklad_podzialu_sieci_na_podsieci_klasa_B.txt");
+						
+						// kopiowanie wynikow z in do out
+						ifstream in("Przyklad_podzialu_sieci_na_podsieci_klasa_B.txt");
+						ofstream out("\\dane.txt", ios::out | ios::app);
+
+						string str;
+						while (getline(in,str))
+						{
+							out << str << endl;
+						}
+						in.close();
+						out.close();
+
+						return segmentacja_sieci(liczba,9);
+						break;
+					}
+					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
+					{
+						system ("CLS");
+						continue;
+					}
+					break;
+
+				case 3:
+					system ("CLS");
+					cout << endl;
+					wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_C.txt");
+					cout << endl;
+					cout << "Czy chcesz wykorzystac taka klase adresacji ? [t/n] " << endl;
+					cin >> odpowiedz_klasa_adresacji;
+
+					if (odpowiedz_klasa_adresacji == 't' || odpowiedz_klasa_adresacji == 'T')
+					{
+						klasa_adresacji("C");
+						wsk6->odczytaj_plik_z_danymi("Przyklad_podzialu_sieci_na_podsieci_klasa_C.txt");
+
+						// kopiowanie wynikow z in do out
+						ifstream in("Przyklad_podzialu_sieci_na_podsieci_klasa_C.txt");
+						ofstream out("\\dane.txt", ios::out | ios::app);
+
+						string str;
+						while (getline(in,str))
+						{
+							out << str << endl;
+						}
+						in.close();
+						out.close();
+
+						return segmentacja_sieci(liczba,9);
+						break;
+					}
+					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
+					{
+						system ("CLS");
+						continue;
+					}
+					break;
+
+				default:
+					cout << "wybrano inna opcje " << endl;
 					break;
 				}
-				else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
-				{
-					system ("CLS");
-					continue;
-				}
-				break;
-
-			case 3:
-				system ("CLS");
-				cout << endl;
-				wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_C.txt");
-				cout << endl;
-				cout << "Czy chcesz wykorzystac taka klase adresacji ? [t/n] " << endl;
-				cin >> odpowiedz_klasa_adresacji;
-
-				if (odpowiedz_klasa_adresacji == 't' || odpowiedz_klasa_adresacji == 'T')
-				{
-					cout << "TAK " << endl;
-					return segmentacja_sieci(liczba,9);
-					break;
-				}
-				else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
-				{
-					system ("CLS");
-					continue;
-				}
-				break;
-
-			default:
-				cout << "wybrano inna opcje " << endl;
-				break;
-			}
 			}
 
 			break;
 		case 4:
+			cout << "Lista protokolow sieciowych " << endl;
 			break;
 		case 5:
 			break;
@@ -341,7 +369,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			Sleep (2000);
 			system ("CLS");
 			return;
-			
+
 			break;
 
 		default:
@@ -349,6 +377,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 
 			break;
 		}
+
 
 	}
 	while (true);
@@ -545,7 +574,7 @@ int Projekt_logiczny::segmenty()
 					continue;
 				}
 
-				if (suma == 32 && pomieszczenia >=8 && klastry == 8)
+				if (suma == 32 && pomieszczenia >=8 && klastry == 6)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -562,7 +591,7 @@ int Projekt_logiczny::segmenty()
 					break;
 				}
 
-				else if (suma == 32 && (pomieszczenia <2 || klastry != 8 || klastry != 4 || klastry != 2 ))
+				else if (suma == 32 && (pomieszczenia <2 || klastry != 6 || klastry != 4 || klastry != 2 ))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
 					Sleep (2000);
@@ -693,12 +722,12 @@ int Projekt_logiczny::segmenty()
 		else if (suma % 2 == 1 && suma >=6)
 		{
 			cout << "Utworzono: " << endl;
-			if (suma == 27 && pomieszczenia >= 9 && klastry == 9)
+			if (suma == 27 && pomieszczenia >= 9 && klastry == 3)
 			{
 				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 				break;
 			}
-			else if (suma == 27 && (pomieszczenia < 8 || klastry != 9))
+			else if (suma == 27 && (pomieszczenia < 8 || klastry != 3))
 			{
 				cout << "nieodpowiednia ilosc klastrow, wiecej " << endl;
 				Sleep (2000);
@@ -754,7 +783,13 @@ int Projekt_logiczny::segmenty()
 	return klastry;
 }
 
-void Projekt_logiczny::klasa_adresow_A()
+void Projekt_logiczny::klasa_adresacji (string nazwa)
 {
-	
+	fstream plik;
+	plik << endl;
+	plik.open("\\dane.txt", ios::out | ios::app);
+	plik << endl;
+	plik << "Klasa adresacji sieci: " << nazwa << endl;
+	plik.close();
+	cout << "Zapisano do pliku 'dane.txt' " << endl;
 }

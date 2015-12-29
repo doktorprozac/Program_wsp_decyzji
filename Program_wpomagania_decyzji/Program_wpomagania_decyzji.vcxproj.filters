@@ -18,12 +18,30 @@
     <ClCompile Include="Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wymagania1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projekt_logiczny.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proj_log_Ethernt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="naglowki.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wymagania1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projekt_logiczny.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proj_log_Ethernt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

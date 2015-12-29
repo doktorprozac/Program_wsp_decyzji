@@ -19,9 +19,7 @@ public:
 	void sumuj (int tab[]);
 	friend class Wymagania1;
 	int *moja_tablica;
-	void klasa_adresow_A ();
-
-	
+	void klasa_adresacji (string nazwa);
 	
 	
 };

@@ -50,10 +50,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <StackReserveSize>700000</StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -75,10 +79,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Projekt_logiczny.cpp" />
+    <ClCompile Include="Proj_log_Ethernt.cpp" />
+    <ClCompile Include="Wymagania1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="info.h" />
     <ClInclude Include="naglowki.h" />
+    <ClInclude Include="Projekt_logiczny.h" />
+    <ClInclude Include="Proj_log_Ethernt.h" />
+    <ClInclude Include="Wymagania1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
