@@ -12,7 +12,7 @@ Proj_log_Ethernt::~Proj_log_Ethernt(void)
 {
 }
 
-list <string> lista;
+
 
 
 void Proj_log_Ethernt::tech_ethernet_10Base2(int &klastry) 
@@ -35,7 +35,7 @@ void Proj_log_Ethernt::tech_ethernet_10Base2(int &klastry)
 	{
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " 10Base2 ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 
 	}
 
@@ -60,7 +60,7 @@ void Proj_log_Ethernt::tech_ethernet_10BaseFL(int &klastry)
 	{
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " 10BaseFL ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 
 	}
 
@@ -87,7 +87,7 @@ void Proj_log_Ethernt::tech_ethernet_100BaseT(int &klastry)
 
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " 100BaseT ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 	}
 
 }
@@ -108,7 +108,7 @@ void Proj_log_Ethernt::tech_ethernet_100BaseTX(int &klastry)
 	{
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " 100BaseTX ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 	}
 
 }
@@ -127,7 +127,7 @@ void Proj_log_Ethernt::tech_ethernet_1000BaseCX(int &klastry)
 	{
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " 1000BaseCX ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 	}
 }
 
@@ -146,7 +146,7 @@ void Proj_log_Ethernt::tech_ethernet_1000BaseLX(int &klastry)
 	{
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " 1000BaseLX ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 	}
 }
 
@@ -170,11 +170,11 @@ void Proj_log_Ethernt::tech_token_ring(int &klastry)
 	{
 		// wpisz do tablicy ze wybrano ta technologie dla pierwszego segmentu, zwroc ilosc pozostalych segmentow
 		nazwa = " Token Ring ";
-		lista.push_back(nazwa);
+		lista_technologii.push_back(nazwa);
 	}
 }
 
-void Proj_log_Ethernt::wyswietl_lista(int &klastry)
+void Proj_log_Ethernt::wyswietl_lista_technologi(int &klastry)
 {
 	ofstream plik;
 	plik.open("\\dane.txt", ios::out | ios::app);
@@ -183,13 +183,13 @@ void Proj_log_Ethernt::wyswietl_lista(int &klastry)
 	cout << " ZAWARTOSC LISTY: " << endl;
 	cout << "------------------------------" << endl;
 
-	cout << lista.size() << endl;
+	cout << lista_technologii.size() << endl;
 
 
-	if (lista.size() < klastry)
+	if (lista_technologii.size() < klastry)
 	{
 
-		for (list<string>::iterator i=lista.begin(); i!=lista.end(); i++)
+		for (list<string>::iterator i=lista_technologii.begin(); i!=lista_technologii.end(); i++)
 		{
 
 			cout  << *i << endl;
@@ -197,11 +197,11 @@ void Proj_log_Ethernt::wyswietl_lista(int &klastry)
 
 	}
 
-	else if (lista.size() >= klastry)
+	else if (lista_technologii.size() >= klastry)
 	{
 
 		cout << "Lista pelna, nie mozna juz dodawac elementow " << endl; 
-		for (list<string>::iterator i=lista.begin(); i!=lista.end(); i++)
+		for (list<string>::iterator i=lista_technologii.begin(); i!=lista_technologii.end(); i++)
 		{
 
 			plik << "Klaster: " << *i << endl; 

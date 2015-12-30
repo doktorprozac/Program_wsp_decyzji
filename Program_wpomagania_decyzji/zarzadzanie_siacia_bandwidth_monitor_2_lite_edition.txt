@@ -1,0 +1,13 @@
+
+Bandwidth Monitor 2 Lite Edition (Rokario)
+
+1. Pozwala na sledzenie w czasie rzeczywistym wykorzystania sieci
+
+2. Oprogramowanie wyswietla ogola przepustowosc sieci jak
+i pasmo wykorzystywane przy pobiernaiu u wysylaniu plikow
+
+3. Instalacja kopii na kazdym urzadzeniu, pozwoli na stwierdzenie 
+czy dane urzadzenia nie obciazaja nadmiernie sieci oraz czy
+nalezy wprowadzic ograniczenia
+
+Koszt: darmowy

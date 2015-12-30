@@ -1,7 +1,7 @@
 #include "Projekt_logiczny.h"
-#include "naglowki.h"
 #include "Wymagania1.h"
 #include "info.h"
+#include "Projekt_fizyczny.h"
 
 Projekt_logiczny::Projekt_logiczny(void)
 {
@@ -21,6 +21,9 @@ Proj_log_Ethernt *wsk5 = new Proj_log_Ethernt;
 
 info *wsk6 = new info;
 
+Projekt_fizyczny *wsk7 = new Projekt_fizyczny();
+
+
 void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 {
 
@@ -37,7 +40,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 		cout << "[2] Wskazanie technologii (standardow) dla kazdego segmentu " << endl;
 		cout << "[3] Adresacja sieci dla segmentow sieci " << endl;
 		cout << "[4] Lista protokolow niezbednych do realizacji sieci " << endl;
-		cout << "[5] Plan zarz¹dzania siecia " << endl;
+		cout << "[5] Plan zarzadzania siecia " << endl;
 		cout << "[6] Powrot do poprzedniego etapu " << endl;
 		cout << endl;
 		cout << "Podaj liczbe: " << endl;
@@ -115,13 +118,13 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					case 1:
 						wsk5->tech_ethernet_10Base2(klastry);
 						// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd.
-						wsk5->wyswietl_lista(klastry);
+						wsk5->wyswietl_lista_technologi(klastry);
 
 						break;
 
 					case 2:
 						wsk5->tech_ethernet_10BaseFL(klastry);
-						wsk5->wyswietl_lista(klastry);
+						wsk5->wyswietl_lista_technologi(klastry);
 						// 
 						break;
 					case 3:
@@ -149,12 +152,12 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					case 1:
 						wsk5->tech_ethernet_100BaseT(klastry);
 						// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd. 
-						wsk5->wyswietl_lista(klastry);
+						wsk5->wyswietl_lista_technologi(klastry);
 						break;
 
 					case 2:
 						wsk5->tech_ethernet_100BaseTX(klastry);
-						wsk5->wyswietl_lista(klastry); 
+						wsk5->wyswietl_lista_technologi(klastry); 
 						break;
 
 					default:
@@ -177,12 +180,12 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					case 1:
 						wsk5->tech_ethernet_1000BaseLX(klastry);
 						// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd. 
-						wsk5->wyswietl_lista(klastry);
+						wsk5->wyswietl_lista_technologi(klastry);
 						break;
 
 					case 2:
 						wsk5->tech_ethernet_1000BaseCX(klastry);
-						wsk5->wyswietl_lista(klastry);
+						wsk5->wyswietl_lista_technologi(klastry);
 						break;
 
 					default:
@@ -202,7 +205,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			case 2:
 
 				wsk5->tech_token_ring(klastry);
-				wsk5->wyswietl_lista(klastry);
+				wsk5->wyswietl_lista_technologi(klastry);
 
 				break;
 			case 3:
@@ -259,7 +262,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					{
 						klasa_adresacji("A");
 						wsk6->odczytaj_plik_z_danymi("Przyklad_podzialu_sieci_na_podsieci_klasa_A.txt");
-						
+
 						// kopiowanie wynikow z in do out
 						ifstream in("Przyklad_podzialu_sieci_na_podsieci_klasa_A.txt");
 						ofstream out("\\dane.txt", ios::out | ios::app);
@@ -294,7 +297,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					{
 						klasa_adresacji("B");
 						wsk6->odczytaj_plik_z_danymi("Przyklad_podzialu_sieci_na_podsieci_klasa_B.txt");
-						
+
 						// kopiowanie wynikow z in do out
 						ifstream in("Przyklad_podzialu_sieci_na_podsieci_klasa_B.txt");
 						ofstream out("\\dane.txt", ios::out | ios::app);
@@ -359,11 +362,40 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			}
 
 			break;
+			
 		case 4:
-			cout << "Lista protokolow sieciowych " << endl;
+			cout << endl;
+			cout << "Lista protokolow sieciowych niezbednych do realizacji sieci: " << endl;
+			cout << "TCP/IP " << endl;
+			cout << "HTTP " << endl;
+			cout << "FTP " << endl;
+			cout << "IMAP " << endl;
+
+			lista_protokolow_sieci();
+
 			break;
 		case 5:
+
+			wsk6->odczytaj_plik_z_danymi("zarzadzanie_siecia_network_magic_pro.txt");
+			czy_wybrac_dany_program_do_zarzadzania_sieci("Network Magic Pro (CISCO) ");
+
+			wsk6->odczytaj_plik_z_danymi("zarzadzanie_siecia_spiceworks_it_desktop.txt");
+			czy_wybrac_dany_program_do_zarzadzania_sieci("Spiceworks IT Desktop 7.3.00076");
+
+			wsk6->odczytaj_plik_z_danymi("zarzadzanie_siacia_bandwidth_monitor_2_lite_edition.txt");
+			czy_wybrac_dany_program_do_zarzadzania_sieci("Bandwidth Monitor 2 Lite Edition (Rokario)");
+
+			delete wsk6;
+			cout << endl;
+			cout << endl;
+			wysrodkowanie_napisu("KONIEC ETAPU DRUGIEGO");
+			wysrodkowanie_napisu("PRZEJSCIE DO TRZECIEGO ETAPU 'PROJEKT FIZYCZNY SIECI ");
+
+			
+			wsk7->tytul_projekt_fizyczny();
+
 			break;
+
 		case 6:
 			cout << " Wybrano [6] powrot do etapu pierwszego " << endl;
 			Sleep (2000);
@@ -721,13 +753,27 @@ int Projekt_logiczny::segmenty()
 		}
 		else if (suma % 2 == 1 && suma >=6)
 		{
-			cout << "Utworzono: " << endl;
-			if (suma == 27 && pomieszczenia >= 9 && klastry == 3)
+			if (suma == 15 && pomieszczenia >=3 && klastry == 3)
 			{
 				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 				break;
 			}
-			else if (suma == 27 && (pomieszczenia < 8 || klastry != 3))
+			else if (suma == 15 && (pomieszczenia < 3 || klastry != 3))
+			{
+				cout << "nieodpowiednia ilosc klastrow, wiecej " << endl;
+				Sleep (2000);
+				system ("CLS");
+				ilosc_pomieszczen();
+				continue;
+			}
+
+
+			if (suma == 27 && pomieszczenia >= 3 && klastry == 3)
+			{
+				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
+				break;
+			}
+			else if (suma == 27 && (pomieszczenia < 3 || klastry != 3))
 			{
 				cout << "nieodpowiednia ilosc klastrow, wiecej " << endl;
 				Sleep (2000);
@@ -792,4 +838,92 @@ void Projekt_logiczny::klasa_adresacji (string nazwa)
 	plik << "Klasa adresacji sieci: " << nazwa << endl;
 	plik.close();
 	cout << "Zapisano do pliku 'dane.txt' " << endl;
+}
+
+void Projekt_logiczny::lista_protokolow_sieci()
+{
+	fstream plik;
+	plik << endl;
+	plik.open("\\dane.txt", ios::out | ios::app);
+	plik << endl;
+	plik << "Lista protokolow sieciowych niezbednych do realizacji sieci: " << endl;
+	plik << "TCP/IP " << endl;
+	plik << "HTTP " << endl;
+	plik << "FTP " << endl;
+	plik << "IMAP " << endl;
+	plik.close();
+}
+
+void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_programow)
+{
+	ofstream plik;
+	plik.open("\\dane.txt", ios::out | ios::app);
+
+	system ("CLS");
+	cout << " ZAWARTOSC LISTY WYBRANYCH PROGRAMOW: " << endl;
+	cout << "------------------------------" << endl;
+
+	cout << lista_programow_zarzadzanie_sieci.size() << " z " << ilosc_programow << endl;
+
+	if (lista_programow_zarzadzanie_sieci.size() < ilosc_programow)
+	{
+		for (list<string>::iterator a=lista_programow_zarzadzanie_sieci.begin(); a!=lista_programow_zarzadzanie_sieci.end(); a++)
+		{
+
+			cout  << *a << endl;
+		}
+	}
+
+	else if (lista_programow_zarzadzanie_sieci.size() >= ilosc_programow)
+	{
+		cout << endl;
+		cout << "Lista pelna, nie mozna juz wybierac programow " << endl;
+		plik << " ZAWARTOSC LISTY WYBRANYCH PROGRAMOW: " << endl;
+		plik << "------------------------------" << endl;
+		for (list<string>::iterator a=lista_programow_zarzadzanie_sieci.begin(); a!=lista_programow_zarzadzanie_sieci.end(); a++)
+		{
+
+			plik << "Program: " << *a << endl; 
+		}
+
+		
+		/*delete wsk7;*/
+
+	}
+	plik << "------------------------------" << endl;
+	cout << endl;
+	cout << "------------------------------" << endl;
+	plik.close();
+
+	
+}
+
+void Projekt_logiczny::czy_wybrac_dany_program_do_zarzadzania_sieci (string nazwa_programu)
+{
+	cout << endl;
+	cout << "Czy chcesz wykorzystac ten program ? [t/n] " << endl;
+	cin >> odpowiedz_zarzadzanie_siecia;
+
+	if (odpowiedz_zarzadzanie_siecia == 't' || odpowiedz_zarzadzanie_siecia == 'T')
+	{
+		lista_programow_zarzadzanie_sieci.push_back(nazwa_programu);
+		lista_wybranych_programow_do_zarzadzania_sieci(2);
+
+	}
+	else if (odpowiedz_zarzadzanie_siecia == 'n' || odpowiedz_zarzadzanie_siecia == 'N')
+	{
+		system ("CLS");
+		lista_wybranych_programow_do_zarzadzania_sieci(2);
+	}
+}
+
+void Projekt_logiczny::wysrodkowanie_napisu(char *napis)
+{
+	int l=strlen(napis);
+	int pos=(int)((80-l)/2);
+
+	for(int i=0;i<pos;i++)
+		cout<<" ";
+	
+	cout<<napis << endl;
 }

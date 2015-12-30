@@ -27,6 +27,9 @@
     <ClCompile Include="Proj_log_Ethernt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Projekt_fizyczny.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="naglowki.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Proj_log_Ethernt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projekt_fizyczny.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

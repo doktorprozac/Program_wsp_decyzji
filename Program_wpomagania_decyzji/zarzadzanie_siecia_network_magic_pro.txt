@@ -1,0 +1,22 @@
+
+Network Magic Pro (CISCO) 
+
+1. Zastosowanie: zarzadzanie malymi sieciami LAN
+
+2. Narzedzie dedykowane z mysla o uzytkownikach majacych male 
+doswiadczenie w projektowaniu sieci
+
+3. Program wyswietla liste urzadzen zainstalowanych w sieci oraz informacje o:
+a. adresach IP
+b. konfiguracji sprzetowej
+c. konfiguracji oprogramowania zarzadzajacego urzadzeniem
+
+4. Oprogramowanie wyposazone jest w funkcjonalnosci typu:
+a. testowanie sieci
+b. monitor wydajnosci
+c. lokalizacje uszkodzen
+d. opcja bezpieczenstwa, redukujaca potencjalne zagrozenia
+e. raportowanie dzialan 
+
+Wersja podstawowa : koszt 30 USD
+Wersja zaawansowana : koszt 50 USD    

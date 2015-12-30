@@ -1,0 +1,19 @@
+
+Spiceworks IT Desktop 7.3.00076
+
+1. Pakiet laczy w sobie cechy:
+a. helpdesku
+b. administracji 
+c. monitoringu sprzetu
+
+2. Oprogramowanie oferuje:
+a. sprawdzenie problemow urzadzen w sieci
+b. monitorowanie routerow, drukarek oraz wszystkich innych urzadzen
+posiadajacych adres IP
+c. tworzenie "ticketow" czyli identyfikacje danego urzadzenia
+d. monitorowanie dyskow twardych oraz sygnalizuje konczaca sie pamiec na nich
+e. prosty interfejs 
+f. tworzenie raportow historii operacji
+
+Koszt programu: darmowy
+

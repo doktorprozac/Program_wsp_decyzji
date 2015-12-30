@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Projekt_fizyczny.cpp" />
     <ClCompile Include="Projekt_logiczny.cpp" />
     <ClCompile Include="Proj_log_Ethernt.cpp" />
     <ClCompile Include="Wymagania1.cpp" />
@@ -86,6 +87,7 @@
   <ItemGroup>
     <ClInclude Include="info.h" />
     <ClInclude Include="naglowki.h" />
+    <ClInclude Include="Projekt_fizyczny.h" />
     <ClInclude Include="Projekt_logiczny.h" />
     <ClInclude Include="Proj_log_Ethernt.h" />
     <ClInclude Include="Wymagania1.h" />
