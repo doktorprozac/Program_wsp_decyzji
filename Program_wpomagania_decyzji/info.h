@@ -56,6 +56,6 @@ public:
 		{
 			cout << "Plik nie zostal otworzony :( " << endl; 
 		}
-		return 0;
+		return true;
 	}
 };

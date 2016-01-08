@@ -1,0 +1,10 @@
+
+Most:
+
+1. Zaleta: filtruja ramki, ktore przesyla z jednego segmentu do drugiego
+2. W przypadku komunikacji dwóch stacji roboczych w obrebie
+jednego segmentu, most nie przesyla ich ramek
+3. Po dolaczeniu do sieci wysylaja zadanie odpowiedzi do wszystkich wezlow
+4. Przesylajac dane, most na poczatku odczytuje polozenie 
+urzadzenia odbiorcy, zapobiegajac niepotrzebnego rozsylania po 
+wszystkich segmentach sieci

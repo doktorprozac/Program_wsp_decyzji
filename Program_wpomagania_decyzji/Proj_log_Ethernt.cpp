@@ -211,4 +211,6 @@ void Proj_log_Ethernt::wyswietl_lista_technologi(int &klastry)
 	cout << endl;
 	cout << "------------------------------" << endl;
 	plik.close();
+
+	return;
 }

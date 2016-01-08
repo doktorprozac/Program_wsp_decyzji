@@ -1,7 +1,7 @@
 #include "Projekt_logiczny.h"
 #include "Wymagania1.h"
-#include "info.h"
 #include "Projekt_fizyczny.h"
+#include "info.h"
 
 Projekt_logiczny::Projekt_logiczny(void)
 {
@@ -13,13 +13,14 @@ Projekt_logiczny::~Projekt_logiczny(void)
 }
 
 int *moja_tablica;
+
 Wymagania1 *obj = new Wymagania1;
 
 Projekt_logiczny obj1;
 
 Proj_log_Ethernt *wsk5 = new Proj_log_Ethernt;
 
-info *wsk6 = new info;
+info *wsk6 = new info();
 
 Projekt_fizyczny *wsk7 = new Projekt_fizyczny();
 
@@ -70,12 +71,13 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 				suma = suma + moja_tablica[i];
 				i++;
 
-			}
-			while (i<9);
+			} while (i < 9);
 
 			cout << "suma wszystkich elementow sieci: " << suma << endl;
 
-			segmenty();
+			ilosc_segmentow = segmenty();
+			cout << "ilosc segmentow: " << ilosc_segmentow << endl;
+			/*segmenty();*/
 			Sleep(5000);
 			break;
 		case 2:
@@ -129,8 +131,8 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						break;
 					case 3:
 						cout << " Wybrano [3] " << endl;
-						system ("CLS");
-						return segmentacja_sieci(liczba,9);
+						system("CLS");
+						return segmentacja_sieci(liczba, 9);
 						continue;
 
 					default:
@@ -157,7 +159,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 
 					case 2:
 						wsk5->tech_ethernet_100BaseTX(klastry);
-						wsk5->wyswietl_lista_technologi(klastry); 
+						wsk5->wyswietl_lista_technologi(klastry);
 						break;
 
 					default:
@@ -196,7 +198,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					break;
 
 				case 4:
-					return segmentacja_sieci(liczba,9);
+					return segmentacja_sieci(liczba, 9);
 					break;
 				}
 
@@ -210,9 +212,9 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 				break;
 			case 3:
 				cout << " Wybrano [3] " << endl;
-				Sleep (2000);
-				system ("CLS");
-				return segmentacja_sieci(liczba,9);
+				Sleep(2000);
+				system("CLS");
+				return segmentacja_sieci(liczba, 9);
 				continue;
 
 			default:
@@ -234,7 +236,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 				cin >> poprawna_adresacja;
 				if (poprawna_adresacja == 't' || poprawna_adresacja == 'T')
 				{
-					system ("CLS");
+					system("CLS");
 					wsk6->odczytaj_plik_z_danymi("Zasady_poprawnego_adresowania.txt");
 				}
 
@@ -252,7 +254,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 				switch (odpowiedz_wybor_klasy)
 				{
 				case 1:
-					system ("CLS");
+					system("CLS");
 					cout << endl;
 					wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_A.txt");
 					cout << endl;
@@ -268,25 +270,25 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						ofstream out("\\dane.txt", ios::out | ios::app);
 
 						string str;
-						while (getline(in,str))
+						while (getline(in, str))
 						{
 							out << str << endl;
 						}
 						in.close();
 						out.close();
 
-						return segmentacja_sieci(liczba,9);
+						return segmentacja_sieci(liczba, 9);
 						break;
 					}
 					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
 					{
-						system ("CLS");
+						system("CLS");
 						continue;
 					}
 					break;
 
 				case 2:
-					system ("CLS");
+					system("CLS");
 					cout << endl;
 					wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_B.txt");
 					cout << endl;
@@ -303,25 +305,25 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						ofstream out("\\dane.txt", ios::out | ios::app);
 
 						string str;
-						while (getline(in,str))
+						while (getline(in, str))
 						{
 							out << str << endl;
 						}
 						in.close();
 						out.close();
 
-						return segmentacja_sieci(liczba,9);
+						return segmentacja_sieci(liczba, 9);
 						break;
 					}
 					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
 					{
-						system ("CLS");
+						system("CLS");
 						continue;
 					}
 					break;
 
 				case 3:
-					system ("CLS");
+					system("CLS");
 					cout << endl;
 					wsk6->odczytaj_plik_z_danymi("Klasa_adresacji_C.txt");
 					cout << endl;
@@ -338,19 +340,19 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						ofstream out("\\dane.txt", ios::out | ios::app);
 
 						string str;
-						while (getline(in,str))
+						while (getline(in, str))
 						{
 							out << str << endl;
 						}
 						in.close();
 						out.close();
 
-						return segmentacja_sieci(liczba,9);
+						return segmentacja_sieci(liczba, 9);
 						break;
 					}
 					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
 					{
-						system ("CLS");
+						system("CLS");
 						continue;
 					}
 					break;
@@ -362,7 +364,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			}
 
 			break;
-			
+
 		case 4:
 			cout << endl;
 			cout << "Lista protokolow sieciowych niezbednych do realizacji sieci: " << endl;
@@ -375,33 +377,39 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 
 			break;
 		case 5:
-
-			wsk6->odczytaj_plik_z_danymi("zarzadzanie_siecia_network_magic_pro.txt");
-			czy_wybrac_dany_program_do_zarzadzania_sieci("Network Magic Pro (CISCO) ");
-
-			wsk6->odczytaj_plik_z_danymi("zarzadzanie_siecia_spiceworks_it_desktop.txt");
-			czy_wybrac_dany_program_do_zarzadzania_sieci("Spiceworks IT Desktop 7.3.00076");
-
-			wsk6->odczytaj_plik_z_danymi("zarzadzanie_siacia_bandwidth_monitor_2_lite_edition.txt");
-			czy_wybrac_dany_program_do_zarzadzania_sieci("Bandwidth Monitor 2 Lite Edition (Rokario)");
-
-			delete wsk6;
+			cout << "[1] Network Magic Pro (CISCO)" << endl;
+			cout << "[2] Spiceworks IT Desktop 7.3.00076" << endl;
+			cout << "[3] Bandwidth Monitor 2 Lite Edition (Rokario)" << endl;
 			cout << endl;
-			cout << endl;
-			wysrodkowanie_napisu("KONIEC ETAPU DRUGIEGO");
-			wysrodkowanie_napisu("PRZEJSCIE DO TRZECIEGO ETAPU 'PROJEKT FIZYCZNY SIECI ");
+			cout << "Jakie programy wybrac:" << endl;
+			cin >> wybierz_programy_zarzadzajace_siecia;
 
-			
-			wsk7->tytul_projekt_fizyczny();
+			switch (wybierz_programy_zarzadzajace_siecia)
+			{
+			case 1:
+				wsk6->odczytaj_plik_z_danymi("zarzadzanie_siecia_network_magic_pro.txt");
+				czy_wybrac_dany_program_do_zarzadzania_sieci("Network Magic Pro (CISCO) ");
+				break;
+			case 2:
+				wsk6->odczytaj_plik_z_danymi("zarzadzanie_siecia_spiceworks_it_desktop.txt");
+				czy_wybrac_dany_program_do_zarzadzania_sieci("Spiceworks IT Desktop 7.3.00076");
+				break;
+			case 3:
+				wsk6->odczytaj_plik_z_danymi("zarzadzanie_siacia_bandwidth_monitor_2_lite_edition.txt");
+				czy_wybrac_dany_program_do_zarzadzania_sieci("Bandwidth Monitor 2 Lite Edition (Rokario)");
+				break;
+
+			defaut:
+				cout << "Wybrano inna opcje" << endl;
+				break;
+			}
 
 			break;
 
 		case 6:
-			cout << " Wybrano [6] powrot do etapu pierwszego " << endl;
-			Sleep (2000);
-			system ("CLS");
-			return;
-
+			powrot_do_poprzedniego_etapu();
+			obj->budynek();
+			
 			break;
 
 		default:
@@ -411,16 +419,16 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 		}
 
 
-	}
-	while (true);
+	} while (true);
+	delete wsk6;
 }
 
-int Projekt_logiczny::ilosc_pomieszczen ()
+int Projekt_logiczny::ilosc_pomieszczen()
 {
 	cout << "Podaj laczna liczbe pomieszczen [max 10] " << endl;
 	cin >> pomieszczenia;
 
-	while (pomieszczenia < 0 || pomieszczenia > 10 )
+	while (pomieszczenia < 0 || pomieszczenia > 10)
 	{
 
 		cout << " Podana wartosc nie spelnia kryteriow " << endl;
@@ -433,7 +441,7 @@ int Projekt_logiczny::ilosc_pomieszczen ()
 
 	cout << "podano: " << pomieszczenia << " pomieszczen " << endl;
 	Sleep(5000);
-	system ("CLS");
+	system("CLS");
 
 	return pomieszczenia;
 }
@@ -441,12 +449,12 @@ int Projekt_logiczny::ilosc_pomieszczen ()
 int Projekt_logiczny::segmenty()
 {
 
-	for ( ;;)
+	for (;;)
 	{
 
 		cout << "Podaj ilosc klastrow z ktorych ma sie skladac siec: " << endl;
 		cin >> klastry;
-		while (klastry < 0 || klastry > 9 )
+		while (klastry < 0 || klastry > 9)
 		{
 			cout << "Za du¿o klastrow, max 9 " << endl;
 			cout << "Podaj ilosc klastrow z ktorych ma sie skladac siec: " << endl;
@@ -457,8 +465,24 @@ int Projekt_logiczny::segmenty()
 			cout << "nie da sie utworzyc klastrow" << endl;
 			continue;
 		}
+		if (suma % 3 == 0 && suma >= 6)
+		{
+			if (suma == 9 && pomieszczenia >= 3 && klastry == 3)
+			{
+				cout << klastry << " klaster z " << suma << " urzadzen " << endl;
+				break;
+			}
+			else if (suma == 9 && pomieszczenia < 3 && klastry != 3)
+			{
+				cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
+				Sleep(2000);
+				system("CLS");
+				ilosc_pomieszczen();
+				continue;
+			}
+		}
 
-		if (suma % 2 == 0 && suma >=6)
+		if (suma % 2 == 0 && suma >= 6)
 		{
 
 			if (suma == 6 && pomieszczenia <= 3 && klastry == 1)
@@ -471,18 +495,18 @@ int Projekt_logiczny::segmenty()
 				cout << klastry << " klaster z " << suma << " urzadzen " << endl;
 				break;
 			}
-			else if (suma == 6 && (pomieszczenia > 3 || klastry != 1 || klastry != 2))
+			else if ((suma == 6 || suma == 9) && (pomieszczenia > 3 || klastry != 1 || klastry != 2 || klastry != 3))
 			{
 				cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-				Sleep (2000);
-				system ("CLS");
+				Sleep(2000);
+				system("CLS");
 				ilosc_pomieszczen();
 				continue;
 			}
 
 			if (suma % 4 == 0)
 			{
-				if (suma == 8 && pomieszczenia <=3 && klastry == 2)
+				if (suma == 8 && pomieszczenia <= 3 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -490,23 +514,23 @@ int Projekt_logiczny::segmenty()
 				else if (suma == 8 && (pomieszczenia > 3 || klastry != 2))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 12 && pomieszczenia <=4 && klastry == 2)
+				if (suma == 12 && pomieszczenia <= 4 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 12 && pomieszczenia <=4 && klastry == 3)
+				else if (suma == 12 && pomieszczenia <= 4 && klastry == 3)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 12 && pomieszczenia <=4 && klastry == 4)
+				else if (suma == 12 && pomieszczenia <= 4 && klastry == 4)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -515,19 +539,19 @@ int Projekt_logiczny::segmenty()
 				else if (suma == 12 && (pomieszczenia > 4 || klastry != 2 || klastry != 3 || klastry != 4))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 16 && pomieszczenia >=2 && pomieszczenia <=4 && klastry == 2)
+				if (suma == 16 && pomieszczenia >= 2 && pomieszczenia <= 4 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
-				else if (suma == 16 && pomieszczenia >=4 && klastry == 4)
+				else if (suma == 16 && pomieszczenia >= 4 && klastry == 4)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -535,19 +559,19 @@ int Projekt_logiczny::segmenty()
 				else if (suma == 16 && (pomieszczenia < 5 || klastry != 2 || klastry != 4))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 20 && pomieszczenia >=5 && klastry == 5)
+				if (suma == 20 && pomieszczenia >= 5 && klastry == 5)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
-				else if (suma == 20 && pomieszczenia >=4 && klastry == 4)
+				else if (suma == 20 && pomieszczenia >= 4 && klastry == 4)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -556,21 +580,21 @@ int Projekt_logiczny::segmenty()
 				else if (suma == 20 && (pomieszczenia < 4 || klastry != 5 || klastry != 4))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 
 					ilosc_pomieszczen();
 					continue;
 				}
 
 
-				if (suma == 24 && pomieszczenia >=7 && klastry == 6)
+				if (suma == 24 && pomieszczenia >= 7 && klastry == 6)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
-				else if (suma == 24 && pomieszczenia <=5 && klastry == 4)
+				else if (suma == 24 && pomieszczenia <= 5 && klastry == 4)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -580,18 +604,18 @@ int Projekt_logiczny::segmenty()
 				else if (suma == 24 && (pomieszczenia < 5 || klastry != 6 || klastry != 4))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 28 &&  pomieszczenia >=7 && klastry == 7)
+				if (suma == 28 && pomieszczenia >= 7 && klastry == 7)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 28 && pomieszczenia >=4 && pomieszczenia <=8 && klastry == 4)
+				else if (suma == 28 && pomieszczenia >= 4 && pomieszczenia <= 8 && klastry == 4)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
@@ -600,34 +624,34 @@ int Projekt_logiczny::segmenty()
 				else if (suma == 28 && (pomieszczenia < 4 || klastry != 7 || klastry != 4))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 32 && pomieszczenia >=8 && klastry == 6)
+				if (suma == 32 && pomieszczenia >= 8 && klastry == 6)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
-				else if (suma == 32 && pomieszczenia >=2 && klastry == 2)
+				else if (suma == 32 && pomieszczenia >= 2 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 				}
 
-				else if (suma == 32 && pomieszczenia >=4 && klastry == 4)
+				else if (suma == 32 && pomieszczenia >= 4 && klastry == 4)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
-				else if (suma == 32 && (pomieszczenia <2 || klastry != 6 || klastry != 4 || klastry != 2 ))
+				else if (suma == 32 && (pomieszczenia < 2 || klastry != 6 || klastry != 4 || klastry != 2))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
@@ -636,114 +660,114 @@ int Projekt_logiczny::segmenty()
 
 			else
 			{
-				if (suma == 10 && pomieszczenia <=3 && klastry == 2)
+				if (suma == 10 && pomieszczenia <= 3 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 10 && (pomieszczenia >3 || klastry != 2))
+				else if (suma == 10 && (pomieszczenia > 3 || klastry != 2))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 14 && pomieszczenia <=3 && klastry == 2)
+				if (suma == 14 && pomieszczenia <= 3 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 14 && (pomieszczenia >3 || klastry != 2))
+				else if (suma == 14 && (pomieszczenia > 3 || klastry != 2))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 18 && pomieszczenia <=6 && klastry == 2)
+				if (suma == 18 && pomieszczenia <= 6 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 18 && pomieszczenia <=6 && klastry == 3)
+				else if (suma == 18 && pomieszczenia <= 6 && klastry == 3)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 18 && pomieszczenia <=6 && klastry == 6)
+				else if (suma == 18 && pomieszczenia <= 6 && klastry == 6)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
-				else if (suma == 18 && (pomieszczenia >6 || klastry != 2 || klastry != 3 || klastry != 6))
+				else if (suma == 18 && (pomieszczenia > 6 || klastry != 2 || klastry != 3 || klastry != 6))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 22 && pomieszczenia <=6 && klastry == 2)
+				if (suma == 22 && pomieszczenia <= 6 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 22 && (pomieszczenia >6 || klastry != 2))
+				else if (suma == 22 && (pomieszczenia > 6 || klastry != 2))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 26 && pomieszczenia <=6 && klastry == 2)
+				if (suma == 26 && pomieszczenia <= 6 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 26 && (pomieszczenia >6 || klastry != 2))
+				else if (suma == 26 && (pomieszczenia > 6 || klastry != 2))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
 
-				if (suma == 30 && pomieszczenia >=2 && pomieszczenia <=10 && klastry == 2)
+				if (suma == 30 && pomieszczenia >= 2 && pomieszczenia <= 10 && klastry == 2)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 30 && pomieszczenia >=3 && pomieszczenia <=10 && klastry == 3)
+				else if (suma == 30 && pomieszczenia >= 3 && pomieszczenia <= 10 && klastry == 3)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 30  && pomieszczenia >=5 && pomieszczenia <=10 && klastry == 5)
+				else if (suma == 30 && pomieszczenia >= 5 && pomieszczenia <= 10 && klastry == 5)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
-				else if (suma == 30  && pomieszczenia >=6 && pomieszczenia <=10 && klastry == 6)
+				else if (suma == 30 && pomieszczenia >= 6 && pomieszczenia <= 10 && klastry == 6)
 				{
 					cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 					break;
 				}
 
 
-				else if (suma == 30 && (pomieszczenia >10 || klastry != 2 || klastry != 3 || klastry != 5 || klastry != 6))
+				else if (suma == 30 && (pomieszczenia > 10 || klastry != 2 || klastry != 3 || klastry != 5 || klastry != 6))
 				{
 					cout << " Za duzo pomieszczen albo klastrow, wprowadz dane jeszcze raz " << endl;
-					Sleep (2000);
-					system ("CLS");
+					Sleep(2000);
+					system("CLS");
 					ilosc_pomieszczen();
 					continue;
 				}
@@ -751,9 +775,9 @@ int Projekt_logiczny::segmenty()
 
 			}
 		}
-		else if (suma % 2 == 1 && suma >=6)
+		else if (suma % 2 == 1 && suma >= 6)
 		{
-			if (suma == 15 && pomieszczenia >=3 && klastry == 3)
+			if (suma == 15 && pomieszczenia >= 3 && klastry == 3)
 			{
 				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 				break;
@@ -761,8 +785,8 @@ int Projekt_logiczny::segmenty()
 			else if (suma == 15 && (pomieszczenia < 3 || klastry != 3))
 			{
 				cout << "nieodpowiednia ilosc klastrow, wiecej " << endl;
-				Sleep (2000);
-				system ("CLS");
+				Sleep(2000);
+				system("CLS");
 				ilosc_pomieszczen();
 				continue;
 			}
@@ -776,12 +800,12 @@ int Projekt_logiczny::segmenty()
 			else if (suma == 27 && (pomieszczenia < 3 || klastry != 3))
 			{
 				cout << "nieodpowiednia ilosc klastrow, wiecej " << endl;
-				Sleep (2000);
-				system ("CLS");
+				Sleep(2000);
+				system("CLS");
 				ilosc_pomieszczen();
 				continue;
 			}
-			if (suma == 25 && pomieszczenia >=5  && klastry == 5)
+			if (suma == 25 && pomieszczenia >= 5 && klastry == 5)
 			{
 				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 				break;
@@ -789,13 +813,13 @@ int Projekt_logiczny::segmenty()
 			else if (suma == 25 && (pomieszczenia < 5 || klastry != 5))
 			{
 				cout << "nieodpowiednia ilosc klastrow lub pomieszczen " << endl;
-				Sleep (2000);
-				system ("CLS");
+				Sleep(2000);
+				system("CLS");
 				ilosc_pomieszczen();
 				continue;
 			}
 
-			if (suma == 33 && pomieszczenia >=3  && klastry == 3)
+			if (suma == 33 && pomieszczenia >= 3 && klastry == 3)
 			{
 				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
 				break;
@@ -803,13 +827,13 @@ int Projekt_logiczny::segmenty()
 			else if (suma == 33 && (pomieszczenia < 3 || klastry != 3))
 			{
 				cout << "nieodpowiednia ilosc klastrow lub pomieszczen " << endl;
-				Sleep (2000);
-				system ("CLS");
+				Sleep(2000);
+				system("CLS");
 				ilosc_pomieszczen();
 				continue;
 			}
 
-		}	
+		}
 	}
 	fstream plik;
 	plik.open("\\dane.txt", ios::out | ios::app);
@@ -829,7 +853,7 @@ int Projekt_logiczny::segmenty()
 	return klastry;
 }
 
-void Projekt_logiczny::klasa_adresacji (string nazwa)
+void Projekt_logiczny::klasa_adresacji(string nazwa)
 {
 	fstream plik;
 	plik << endl;
@@ -854,12 +878,12 @@ void Projekt_logiczny::lista_protokolow_sieci()
 	plik.close();
 }
 
-void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_programow)
+void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_programow, int ilosc_segmentow)
 {
 	ofstream plik;
 	plik.open("\\dane.txt", ios::out | ios::app);
 
-	system ("CLS");
+	system("CLS");
 	cout << " ZAWARTOSC LISTY WYBRANYCH PROGRAMOW: " << endl;
 	cout << "------------------------------" << endl;
 
@@ -867,10 +891,10 @@ void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_
 
 	if (lista_programow_zarzadzanie_sieci.size() < ilosc_programow)
 	{
-		for (list<string>::iterator a=lista_programow_zarzadzanie_sieci.begin(); a!=lista_programow_zarzadzanie_sieci.end(); a++)
+		for (list<string>::iterator a = lista_programow_zarzadzanie_sieci.begin(); a != lista_programow_zarzadzanie_sieci.end(); a++)
 		{
 
-			cout  << *a << endl;
+			cout << *a << endl;
 		}
 	}
 
@@ -880,14 +904,20 @@ void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_
 		cout << "Lista pelna, nie mozna juz wybierac programow " << endl;
 		plik << " ZAWARTOSC LISTY WYBRANYCH PROGRAMOW: " << endl;
 		plik << "------------------------------" << endl;
-		for (list<string>::iterator a=lista_programow_zarzadzanie_sieci.begin(); a!=lista_programow_zarzadzanie_sieci.end(); a++)
+		for (list<string>::iterator a = lista_programow_zarzadzanie_sieci.begin(); a != lista_programow_zarzadzanie_sieci.end(); a++)
 		{
 
-			plik << "Program: " << *a << endl; 
+			plik << "Program: " << *a << endl;
 		}
+		cout << endl;
+		cout << endl;
+		wysrodkowanie_napisu("KONIEC ETAPU DRUGIEGO");
+		wysrodkowanie_napisu("PRZEJSCIE DO TRZECIEGO ETAPU 'PROJEKT FIZYCZNY SIECI ");
 
-		
-		/*delete wsk7;*/
+		Sleep(2000);
+		system("CLS");
+
+		wsk7->tytul_projekt_fizyczny(ilosc_segmentow);
 
 	}
 	plik << "------------------------------" << endl;
@@ -895,10 +925,11 @@ void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_
 	cout << "------------------------------" << endl;
 	plik.close();
 
-	
+
+
 }
 
-void Projekt_logiczny::czy_wybrac_dany_program_do_zarzadzania_sieci (string nazwa_programu)
+void Projekt_logiczny::czy_wybrac_dany_program_do_zarzadzania_sieci(string nazwa_programu)
 {
 	cout << endl;
 	cout << "Czy chcesz wykorzystac ten program ? [t/n] " << endl;
@@ -907,23 +938,31 @@ void Projekt_logiczny::czy_wybrac_dany_program_do_zarzadzania_sieci (string nazw
 	if (odpowiedz_zarzadzanie_siecia == 't' || odpowiedz_zarzadzanie_siecia == 'T')
 	{
 		lista_programow_zarzadzanie_sieci.push_back(nazwa_programu);
-		lista_wybranych_programow_do_zarzadzania_sieci(2);
+		lista_wybranych_programow_do_zarzadzania_sieci(2, ilosc_segmentow);
 
 	}
-	else if (odpowiedz_zarzadzanie_siecia == 'n' || odpowiedz_zarzadzanie_siecia == 'N')
-	{
-		system ("CLS");
-		lista_wybranych_programow_do_zarzadzania_sieci(2);
-	}
+
 }
 
 void Projekt_logiczny::wysrodkowanie_napisu(char *napis)
 {
-	int l=strlen(napis);
-	int pos=(int)((80-l)/2);
+	int l = strlen(napis);
+	int pos = (int)((80 - l) / 2);
 
-	for(int i=0;i<pos;i++)
-		cout<<" ";
-	
-	cout<<napis << endl;
+	for (int i = 0; i < pos; i++)
+		cout << " ";
+
+	cout << napis << endl;
 }
+
+void Projekt_logiczny::powrot_do_poprzedniego_etapu()
+{
+	system("CLS");
+	cout << " Wybrano opcje powrotu do poprzedniego etapu " << endl;
+	Sleep(2000);
+	system("CLS");
+	lista_programow_zarzadzanie_sieci.clear();
+	wsk5->lista_technologii.clear();
+	return;
+}
+

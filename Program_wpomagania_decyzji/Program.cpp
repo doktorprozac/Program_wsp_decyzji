@@ -2,6 +2,7 @@
 #include "Wymagania1.h"
 #include "info.h"
 
+
 int main ()
 {
 bool wyjscie = false;

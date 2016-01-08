@@ -1,6 +1,6 @@
 #pragma once
 #include "naglowki.h"
-
+#include "Projekt_logiczny.h"
  
 
 class Proj_log_Ethernt
@@ -8,8 +8,10 @@ class Proj_log_Ethernt
 	char odpowiedz_eth, odpowiedz_ring;
 	string nazwa;
 	list <string> lista_technologii;
+	friend class Projekt_logiczny;
 public:
 	
+
 	Proj_log_Ethernt(void);
 	~Proj_log_Ethernt(void);
 	void tech_ethernet_10Base2(int &klastry);

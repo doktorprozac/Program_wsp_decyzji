@@ -1,0 +1,11 @@
+
+Switch:
+
+1. Dzieli sieci na segmenty
+2. Jesli w jakim segmencie jest transmisja danych w obrebie danego segmentu, 
+to ruch nie jest widoczny poza tym segmentem
+3. Zmniejszone natezenie ruchu oraz zmniejsza ryzyko kolizji
+4. Gdy polaczenie zostanie zainicjowane, dane nie sa rozsylane po
+calej sieci, tylko kierowane do urzadzen bioracych udzial w komunikacji
+5. Kazdy z segmentow dysponuje cala szerokoscia pasma 
+ 

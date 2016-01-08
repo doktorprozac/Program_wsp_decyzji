@@ -441,4 +441,3 @@ int * Wymagania1::odczyt_z_pliku()
 	return this->liczba;
 
 }
-
