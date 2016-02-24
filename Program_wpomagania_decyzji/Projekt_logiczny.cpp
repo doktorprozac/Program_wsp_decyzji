@@ -27,10 +27,9 @@ Projekt_fizyczny *wsk7 = new Projekt_fizyczny();
 
 void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 {
-
+	
 	do
 	{
-
 		cout << "*************************************************************" << endl;
 		cout << "*************************************************************" << endl;
 		cout << "ETAP DRUGI, PROJEKT LOGICZNY SIECI: " << endl;
@@ -55,173 +54,178 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 
 
 		case 1:
-			cout << "*************************************************************" << endl;
-			cout << "Wskazanie lacznej liczby pomieszczen " << endl;
-			cout << "*************************************************************" << endl;
-			ilosc_pomieszczen();
+			
+				cout << "*************************************************************" << endl;
+				cout << "Wskazanie lacznej liczby pomieszczen " << endl;
+				cout << "*************************************************************" << endl;
+				ilosc_pomieszczen();
 
-			cout << "ilosc wybranych pomieszczen: " << pomieszczenia << endl;
+				cout << "ilosc wybranych pomieszczen: " << pomieszczenia << endl;
 
-			suma = 0;
-			i = 0;
-			moja_tablica = obj->odczyt_z_pliku();
-			do
-			{
-				cout << moja_tablica[i] << endl;
-				suma = suma + moja_tablica[i];
-				i++;
+				suma = 0;
+				i = 0;
+				moja_tablica = obj->odczyt_z_pliku();
+				do
+				{
+					cout << moja_tablica[i] << endl;
+					suma = suma + moja_tablica[i];
+					i++;
 
-			} while (i < 9);
+				} while (i < 9);
 
-			cout << "suma wszystkich elementow sieci: " << suma << endl;
+				cout << "suma wszystkich elementow sieci: " << suma << endl;
 
-			ilosc_segmentow = segmenty();
-			cout << "ilosc segmentow: " << ilosc_segmentow << endl;
-			/*segmenty();*/
-			Sleep(5000);
-			break;
+				ilosc_segmentow = segmenty();
+				cout << "ilosc segmentow: " << ilosc_segmentow << endl;
+				/*segmenty();*/
+				Sleep(5000);
+				cout << endl;
+				cout << "Ukonczono: [1] Wskazanie lacznej liczby pomieszczen oraz klastrow  " << endl;
+				cout << endl;
+				break;
+				
 		case 2:
+		
+				cout << "*************************************************************" << endl;
+				cout << "*************************************************************" << endl;
+				cout << "Dostepne technologie: " << endl;
+				cout << "[1] Ethernet " << endl;
+				cout << "[2] Token-Ring " << endl;
+				cout << "[3] Powrot " << endl;
 
+				cout << "Podaj numer technologii, ktora chcesz wykorzystac : " << endl;
+				cin >> odpowiedz[1];
 
-			cout << "*************************************************************" << endl;
-			cout << "*************************************************************" << endl;
-			cout << "Dostepne technologie: " << endl;
-			cout << "[1] Ethernet " << endl;
-			cout << "[2] Token-Ring " << endl;
-			cout << "[3] Powrot " << endl;
-
-			cout << "Podaj numer technologii, ktora chcesz wykorzystac : " << endl;
-			cin >> odpowiedz[1];
-
-			switch (odpowiedz[1])
-			{
-			case 1:
-				cout << "[1] IEEE 802.3 - przepustowosc 10 Mb/s " << endl;
-				cout << "[2] Fast Ethernet 100 Mb/s - przepustowosc 100 Mb/s " << endl;
-				cout << "[3] Gigabit Ethernet - przepustowosc 1000 Mb/s " << endl;
-				cout << "[4] Powrot " << endl;
-				cout << "--------------------------------------------------" << endl;
-				cout << "Wybierz rodzaj technologii Ethernet: " << endl;
-				cin >> odpowiedz[2];
-
-
-				switch (odpowiedz[2])
+				switch (odpowiedz[1])
 				{
 				case 1:
-					cout << "[1] 10Base2 " << endl;
-					cout << "[2] 10BaseFL " << endl;
-					cout << "[3] Powrot " << endl;
+					cout << "[1] IEEE 802.3 - przepustowosc 10 Mb/s " << endl;
+					cout << "[2] Fast Ethernet 100 Mb/s - przepustowosc 100 Mb/s " << endl;
+					cout << "[3] Gigabit Ethernet - przepustowosc 1000 Mb/s " << endl;
+					cout << "[4] Powrot " << endl;
 					cout << "--------------------------------------------------" << endl;
-					cout << "Ktory wybierasz: " << endl;
-					cin >> odpowiedz[3];
+					cout << "Wybierz rodzaj technologii Ethernet: " << endl;
+					cin >> odpowiedz[2];
 
-					switch (odpowiedz[3])
+
+					switch (odpowiedz[2])
 					{
 					case 1:
-						wsk5->tech_ethernet_10Base2(klastry);
-						// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd.
-						wsk5->wyswietl_lista_technologi(klastry);
+						cout << "[1] 10Base2 " << endl;
+						cout << "[2] 10BaseFL " << endl;
+						cout << "[3] Powrot " << endl;
+						cout << "--------------------------------------------------" << endl;
+						cout << "Ktory wybierasz: " << endl;
+						cin >> odpowiedz[3];
+
+						switch (odpowiedz[3])
+						{
+						case 1:
+							wsk5->tech_ethernet_10Base2(klastry);
+							// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd.
+							wsk5->wyswietl_lista_technologi(klastry);
+
+							break;
+
+						case 2:
+							wsk5->tech_ethernet_10BaseFL(klastry);
+							wsk5->wyswietl_lista_technologi(klastry);
+							// 
+							break;
+						case 3:
+							cout << " Wybrano [3] " << endl;
+							system("CLS");
+							return segmentacja_sieci(liczba, 9);
+							continue;
+
+						default:
+							cout << "Brak opcji " << endl;
+							break;
+
+						}
 
 						break;
-
 					case 2:
-						wsk5->tech_ethernet_10BaseFL(klastry);
-						wsk5->wyswietl_lista_technologi(klastry);
-						// 
+						cout << "[1] 100BaseT " << endl;
+						cout << "[2] 100BaseTX " << endl;
+						cout << "--------------------------------------------------" << endl;
+						cout << "Ktory wybierasz: " << endl;
+						cin >> odpowiedz[4];
+
+						switch (odpowiedz[4])
+						{
+						case 1:
+							wsk5->tech_ethernet_100BaseT(klastry);
+							// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd. 
+							wsk5->wyswietl_lista_technologi(klastry);
+							break;
+
+						case 2:
+							wsk5->tech_ethernet_100BaseTX(klastry);
+							wsk5->wyswietl_lista_technologi(klastry);
+							break;
+
+						default:
+							cout << "Brak opcji " << endl;
+							break;
+
+						}
+
 						break;
 					case 3:
-						cout << " Wybrano [3] " << endl;
-						system("CLS");
-						return segmentacja_sieci(liczba, 9);
-						continue;
+						cout << "[1] 1000BaseLX " << endl;
+						cout << "[2] 1000BaseCX " << endl;
+						cout << "--------------------------------------------------" << endl;
+						cout << "Ktory wybierasz: " << endl;
 
-					default:
-						cout << "Brak opcji " << endl;
+						cin >> odpowiedz[5];
+
+						switch (odpowiedz[5])
+						{
+						case 1:
+							wsk5->tech_ethernet_1000BaseLX(klastry);
+							// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd. 
+							wsk5->wyswietl_lista_technologi(klastry);
+							break;
+
+						case 2:
+							wsk5->tech_ethernet_1000BaseCX(klastry);
+							wsk5->wyswietl_lista_technologi(klastry);
+							break;
+
+						default:
+							cout << "Brak opcji " << endl;
+							break;
+
+						}
 						break;
 
+					case 4:
+						return segmentacja_sieci(liczba, 9);
+						break;
 					}
 
 					break;
+
 				case 2:
-					cout << "[1] 100BaseT " << endl;
-					cout << "[2] 100BaseTX " << endl;
-					cout << "--------------------------------------------------" << endl;
-					cout << "Ktory wybierasz: " << endl;
-					cin >> odpowiedz[4];
 
-					switch (odpowiedz[4])
-					{
-					case 1:
-						wsk5->tech_ethernet_100BaseT(klastry);
-						// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd. 
-						wsk5->wyswietl_lista_technologi(klastry);
-						break;
-
-					case 2:
-						wsk5->tech_ethernet_100BaseTX(klastry);
-						wsk5->wyswietl_lista_technologi(klastry);
-						break;
-
-					default:
-						cout << "Brak opcji " << endl;
-						break;
-
-					}
+					wsk5->tech_token_ring(klastry);
+					wsk5->wyswietl_lista_technologi(klastry);
 
 					break;
 				case 3:
-					cout << "[1] 1000BaseLX " << endl;
-					cout << "[2] 1000BaseCX " << endl;
-					cout << "--------------------------------------------------" << endl;
-					cout << "Ktory wybierasz: " << endl;
-
-					cin >> odpowiedz[5];
-
-					switch (odpowiedz[5])
-					{
-					case 1:
-						wsk5->tech_ethernet_1000BaseLX(klastry);
-						// dopisac jak jest juz podzielone w ile segmentow, to wypelnic tablice, 1 segment, jaka technologia itd. 
-						wsk5->wyswietl_lista_technologi(klastry);
-						break;
-
-					case 2:
-						wsk5->tech_ethernet_1000BaseCX(klastry);
-						wsk5->wyswietl_lista_technologi(klastry);
-						break;
-
-					default:
-						cout << "Brak opcji " << endl;
-						break;
-
-					}
-					break;
-
-				case 4:
+					cout << " Wybrano [3] " << endl;
+					Sleep(2000);
+					system("CLS");
 					return segmentacja_sieci(liczba, 9);
+					continue;
+
+				default:
+					cout << "Opcja nie dostepna " << endl;
 					break;
 				}
-
-				break;
-
-			case 2:
-
-				wsk5->tech_token_ring(klastry);
-				wsk5->wyswietl_lista_technologi(klastry);
-
-				break;
-			case 3:
-				cout << " Wybrano [3] " << endl;
-				Sleep(2000);
-				system("CLS");
-				return segmentacja_sieci(liczba, 9);
-				continue;
-
-			default:
-				cout << "Opcja nie dostepna " << endl;
-				break;
-			}
-
+			
+				
 			break;
 
 		case 3:
@@ -276,8 +280,11 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						}
 						in.close();
 						out.close();
-
+						cout << endl;
+						cout << "Ukonczono: [3] Adresacja sieci dla segmentow sieci " << endl;
+						cout << endl;
 						return segmentacja_sieci(liczba, 9);
+						
 						break;
 					}
 					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
@@ -300,7 +307,6 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						klasa_adresacji("B");
 						wsk6->odczytaj_plik_z_danymi("Przyklad_podzialu_sieci_na_podsieci_klasa_B.txt");
 
-						// kopiowanie wynikow z in do out
 						ifstream in("Przyklad_podzialu_sieci_na_podsieci_klasa_B.txt");
 						ofstream out("\\dane.txt", ios::out | ios::app);
 
@@ -311,8 +317,11 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						}
 						in.close();
 						out.close();
-
+						cout << endl;
+						cout << "Ukonczono: [3] Adresacja sieci dla segmentow sieci " << endl;
+						cout << endl;
 						return segmentacja_sieci(liczba, 9);
+						
 						break;
 					}
 					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
@@ -346,8 +355,11 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 						}
 						in.close();
 						out.close();
-
+						cout << endl;
+						cout << "Ukonczono: [3] Adresacja sieci dla segmentow sieci " << endl;
+						cout << endl;
 						return segmentacja_sieci(liczba, 9);
+						
 						break;
 					}
 					else if (odpowiedz_klasa_adresacji == 'n' || odpowiedz_klasa_adresacji == 'N')
@@ -362,7 +374,7 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 					break;
 				}
 			}
-
+			
 			break;
 
 		case 4:
@@ -374,6 +386,9 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 			cout << "IMAP " << endl;
 
 			lista_protokolow_sieci();
+			cout << endl;
+			cout << "Ukonczono: [4] Lista protokolow niezbednych do realizacji sieci " << endl;
+			cout << endl;
 
 			break;
 		case 5:
@@ -404,6 +419,8 @@ void Projekt_logiczny::segmentacja_sieci(int liczba[], int rozmiar)
 				break;
 			}
 
+			//
+			
 			break;
 
 		case 6:
@@ -833,6 +850,21 @@ int Projekt_logiczny::segmenty()
 				continue;
 			}
 
+
+			if (suma == 21 && pomieszczenia >= 3 && klastry == 3)
+			{
+				cout << klastry << " klastry z " << suma << " urzadzen " << endl;
+				break;
+			}
+			else if (suma == 21 && (pomieszczenia < 3 || klastry != 3))
+			{
+				cout << "nieodpowiednia ilosc klastrow lub pomieszczen " << endl;
+				Sleep(2000);
+				system("CLS");
+				ilosc_pomieszczen();
+				continue;
+			}
+
 		}
 	}
 	fstream plik;
@@ -910,9 +942,18 @@ void Projekt_logiczny::lista_wybranych_programow_do_zarzadzania_sieci(int ilosc_
 			plik << "Program: " << *a << endl;
 		}
 		cout << endl;
+		cout << "Ukonczono [5] Plan zarzadzania siecia " << endl;
+		cout << endl;
 		cout << endl;
 		wysrodkowanie_napisu("KONIEC ETAPU DRUGIEGO");
 		wysrodkowanie_napisu("PRZEJSCIE DO TRZECIEGO ETAPU 'PROJEKT FIZYCZNY SIECI ");
+		plik << "*************************************************************" << endl;
+		plik << "*************************************************************" << endl;
+		plik << "ETAP TRZECI, PROJEKT FIZYCZNY SIECI:" << endl;
+		plik << "*************************************************************" << endl;
+		plik << "*************************************************************" << endl;
+		plik << endl;
+		plik << endl;
 
 		Sleep(2000);
 		system("CLS");
@@ -965,4 +1006,3 @@ void Projekt_logiczny::powrot_do_poprzedniego_etapu()
 	wsk5->lista_technologii.clear();
 	return;
 }
-

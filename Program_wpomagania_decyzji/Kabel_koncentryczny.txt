@@ -1,0 +1,14 @@
+Kabel koncentryczny
+
+Zalety:
+- odporny na zaklocenia
+- odporny na uszkodzenia mechaniczne
+- ma male tlumienie
+- nie tworzy zaklocen
+- pozwala na budowanie dlugich segmentow sieci
+
+Wady:
+- wykrzystywany do sieci o szybkosci 10 Mb/s
+- ma mala elastycznosc kabla
+- spore wymiary
+- utrudniony sposob instalacji

@@ -1,0 +1,18 @@
+Skretka
+
+Zalety:
+- predkosc transmisji do 1000 Mb/s
+- latwo zdiagnozowac uszkodzenie
+- odporna na wieksze awarie, przerwannie kabla unieruchamia 
+zazwyczaj tylko jedna stacje robocza
+- odporna na zaklocenia
+- latwy sposob instalacji
+- najtansze okablowanie
+
+Wady:
+- krotsza dlugosc kabla laczacego segmenty sieci
+- skretka UTP jest podatna na zaklocenia
+- mala odleglosc przesylania danych
+- nie mozna stooswac skretki, gdzie wystepuja duze zaklocenia elektormagnetyczne
+
+ 

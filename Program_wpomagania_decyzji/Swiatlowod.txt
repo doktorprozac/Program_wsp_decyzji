@@ -1,0 +1,14 @@
+Swiatlowod
+
+Zalety:
+- nie jest podatny na interferencje
+- impulsy docieraja dalej niz sygnaly w kablu miedzianym
+- przenosza wiecej informacji
+- obojetny na zaklocenia
+- trudno jest przechwycic sygnal
+
+Wady:
+- konieczny specjalistyczny sprzet do laczenia swiatlowodow
+- trudno znalesc miejsce przerwania swiatlowodu
+- trudny w naprawie 
+- drogie medium transmisyjnej 

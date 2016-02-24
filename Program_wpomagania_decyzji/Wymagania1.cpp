@@ -367,30 +367,8 @@ int* Wymagania1::urzadzenia (int rozmiar)
 		cout << "Zapisano informacje do pliku 'dane.txt' na dysku D:" << endl;
 	}
 
-	system("CLS");
-	cout << "Otworzyc zawartosc pliku ? [t/n] " << endl;
-	cin >> odpowiedzz;
-	system ("CLS");
-	if (odpowiedzz == 't' || odpowiedzz == 'T')
-	{
-		string linia;
-		fstream plik;
-		plik.open("\\dane.txt", ios::in); // | ios:app -> dopisywanie do pliku
-		if (plik.is_open())
-		{
-			while ( getline (plik,linia) )
-			{
-				cout << linia << '\n';
-			}
-
-			plik.close();
-		}
-		else
-		{
-			cout << "Nie mozna otworzyc pliku " << endl;
-		}
-	}
-
+	
+	czy_otworzyc_zawartosc_pliku();
 
 	Sleep(5000);
 	system ("CLS");
@@ -440,4 +418,36 @@ int * Wymagania1::odczyt_z_pliku()
 
 	return this->liczba;
 
+}
+
+int Wymagania1::czy_otworzyc_zawartosc_pliku()
+{
+	system("CLS");
+	cout << "Otworzyc zawartosc pliku ? [t/n] " << endl;
+	cin >> odpowiedzz;
+	system("CLS");
+	if (odpowiedzz == 't' || odpowiedzz == 'T')
+	{
+		string linia;
+		fstream plik;
+		plik.open("\\dane.txt", ios::in); // | ios:app -> dopisywanie do pliku
+		if (plik.is_open())
+		{
+			while (getline(plik, linia))
+			{
+				cout << linia << '\n';
+			}
+
+			plik.close();
+		}
+		else
+		{
+			cout << "Nie mozna otworzyc pliku " << endl;
+		}
+		cout << endl;
+		cout << " Wcisnij ENTER aby wyjsc " << endl;
+		cin.get();
+		return 0;
+	}
+	
 }

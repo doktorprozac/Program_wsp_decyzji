@@ -1,6 +1,5 @@
 #include "naglowki.h"
 
-
 class info
 {	
 public:

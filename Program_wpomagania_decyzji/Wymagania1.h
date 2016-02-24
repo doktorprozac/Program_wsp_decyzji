@@ -14,6 +14,7 @@ public:
 	void tytul();
 	int budynek();
 	int ilosc_pieter();
+	int czy_otworzyc_zawartosc_pliku();
 	
 	int* urzadzenia(int rozmiar);
 	int *get_liczba();

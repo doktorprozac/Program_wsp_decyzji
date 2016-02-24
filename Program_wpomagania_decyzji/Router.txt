@@ -2,10 +2,10 @@
 Router:
 
 1. Wykorzystuje logiczne adresy odbiorcy i nadawcy
-2. Przesy³anie danych i informacji jest niezale¿ne od fizycznych adresów urz¹dzeñ
-3. Wystêpuje filtracja pakietów pomiêdzy segmentami
-4. Okreœla optymalna przesy³ania danych 
-5. Eliminuje pakiety bez adresata i ogranicza dostêp okreœlonych uzytkownikow
+2. Przesylanie danych i informacji jest niezalezne od fizycznych adresow urzadzen
+3. Wystêpuje filtracja pakietow pomiedzy segmentami
+4. Okresla optymalna trase przesylania danych 
+5. Eliminuje pakiety bez adresata i ogranicza dostep okreslonych uzytkownikow
 6. Jest konfigurowalny
 7. Umozliwia sterowanie przepustowoscia sieci
 8. Zapewnia izolacje pomiedzy segmentami

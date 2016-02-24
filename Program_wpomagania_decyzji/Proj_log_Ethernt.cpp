@@ -183,7 +183,7 @@ void Proj_log_Ethernt::wyswietl_lista_technologi(int &klastry)
 	cout << " ZAWARTOSC LISTY: " << endl;
 	cout << "------------------------------" << endl;
 
-	cout << lista_technologii.size() << endl;
+	cout << lista_technologii.size() << " z " << klastry <<  endl;
 
 
 	if (lista_technologii.size() < klastry)
@@ -205,7 +205,10 @@ void Proj_log_Ethernt::wyswietl_lista_technologi(int &klastry)
 		{
 
 			plik << "Klaster: " << *i << endl; 
-		}	
+		}
+		cout << endl;
+		cout << "Ukonczono: [2] Wskazanie technologii (standardow) dla kazdego segmentu  " << endl;
+		cout << endl;
 	}
 
 	cout << endl;

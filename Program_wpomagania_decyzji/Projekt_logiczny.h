@@ -8,7 +8,7 @@
 class Wymagania1;
 class Projekt_logiczny
 {
-	int a,i, odpowiedz[5] ,pomieszczenia, il_segmentow, suma, klastry, wynik, odpowiedz_wybor_klasy, wybierz_programy_zarzadzajace_siecia;
+	int a,i, odpowiedz[5] ,pomieszczenia, suma, klastry, wynik, odpowiedz_wybor_klasy, wybierz_programy_zarzadzajace_siecia;
 	int ilosc_segmentow, usun_liste;
 	char poprawna_adresacja, odpowiedz_klasa_adresacji, odpowiedz_zarzadzanie_siecia;
 	
